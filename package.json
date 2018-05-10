@@ -4,15 +4,17 @@
   "description": "A nuxt module that implements a universal service layer, same-way compatible between server and client side.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Pedro Pereira",
   "license": "MIT",
   "dependencies": {
     "config": "^1.30.0",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "lodash": "^4.17.10"
   },
   "devDependencies": {
+    "axios": "^0.18.0",
     "jest": "^22.4.3",
     "nuxt": "^1.4.0"
   }

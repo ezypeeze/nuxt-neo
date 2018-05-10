@@ -2,7 +2,7 @@ const Controller = require('../../lib/Controller');
 
 class TestController extends Controller {
 
-    getAction(params, {query}) {
+    getAction({params, query}) {
         return {
             ok: true,
             path: this.request.path,
@@ -11,7 +11,7 @@ class TestController extends Controller {
         }
     }
 
-    allAction(params, {query}) {
+    allAction({params, query}) {
         return {
             ok: true,
             path: this.request.path,
@@ -20,7 +20,7 @@ class TestController extends Controller {
         }
     }
 
-    createAction(params, {body}) {
+    createAction({params, body}) {
         return {
             ok: true,
             path: this.request.path,
@@ -29,7 +29,7 @@ class TestController extends Controller {
         }
     }
 
-    updateAction(params, {body}) {
+    updateAction({params, body}) {
         return {
             ok: true,
             path: this.request.path,
@@ -38,7 +38,7 @@ class TestController extends Controller {
         }
     }
 
-    removeAction(params, {body}) {
+    removeAction({params, body}) {
         return {
             ok: true,
             path: this.request.path,
@@ -71,3 +71,7 @@ TestController.ROUTES = {
         verb: 'DELETE'
     }
 };
+
+TestController.MIDDLEWARE = [];
+
+module.exports = TestController;
