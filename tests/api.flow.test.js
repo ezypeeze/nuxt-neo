@@ -1,22 +1,28 @@
 import test from 'ava';
 
-test.before(globalBeforeAll);
-test.after(globalAfterAll);
+test.before(globalBeforeAll({
+    moduleOptions: {
+        api: {
+            prefix: '/api/v2'
+        }
+    }
+}));
+test.after(globalAfterAll());
 
-test('Test api prefix (GET /api)', async (t) => {
+test('Test api prefix (GET /api/v2)', async (t) => {
     try {
-        await api.get('/users/categories');
+        await api.get('/api/v2/users/categories');
     } catch (err) {
         t.is(err.response.status, 404);
     }
 });
 
-test('Test first level api (GET /users)', async (t) => {
+test('Test first level api (GET /api/v2/users)', async (t) => {
     const {data} = await api.get('/users');
     t.true(data.ok);
 });
 
-test('Test second level api (GET /users/categories) - should give 404', async (t) => {
+test('Test second level api (GET /api/v2/users/categories) - should give 404', async (t) => {
     try {
         await api.get('/users/categories');
     } catch (err) {
@@ -24,7 +30,7 @@ test('Test second level api (GET /users/categories) - should give 404', async (t
     }
 });
 
-test('Test third level api (GET /users/categories/types)', async (t) => {
+test('Test third level api (GET /api/v2/users/categories/types)', async (t) => {
     const {data} = await api.get('/users/categories/types');
     t.true(data.ok);
 });
@@ -61,6 +67,6 @@ test('Test hybrid api data flow client side', async (t) => {
     changePath.dispatchEvent(clickEvent);
     await new Promise(resolve => setTimeout(resolve, 1000)); // wait for API request
 
-    t.is(path.textContent, '/api/users');
+    t.is(path.textContent, '/api/v2/users');
     t.is(okay.textContent, "It's okay!");
 });

@@ -6,6 +6,8 @@ class TestController extends Controller {
         return {
             ok: true,
             path: this.request.originalUrl,
+            controller_middleware: this.request.locals && this.request.locals.controller_middleware,
+            action_middleware: this.request.locals && this.request.locals.action_middleware,
             params,
             query,
         }
@@ -15,6 +17,8 @@ class TestController extends Controller {
         return {
             ok: true,
             path: this.request.originalUrl,
+            controller_middleware: this.request.locals && this.request.locals.controller_middleware,
+            action_middleware: this.request.locals && this.request.locals.action_middleware,
             params,
             query,
         }
@@ -24,6 +28,8 @@ class TestController extends Controller {
         return {
             ok: true,
             path: this.request.originalUrl,
+            controller_middleware: this.request.locals && this.request.locals.controller_middleware,
+            action_middleware: this.request.locals && this.request.locals.action_middleware,
             params,
             body,
         }
@@ -33,6 +39,8 @@ class TestController extends Controller {
         return {
             ok: true,
             path: this.request.originalUrl,
+            controller_middleware: this.request.locals && this.request.locals.controller_middleware,
+            action_middleware: this.request.locals && this.request.locals.action_middleware,
             params,
             body,
         }
@@ -42,6 +50,8 @@ class TestController extends Controller {
         return {
             ok: true,
             path: this.request.originalUrl,
+            controller_middleware: this.request.locals && this.request.locals.controller_middleware,
+            action_middleware: this.request.locals && this.request.locals.action_middleware,
             params,
             body,
         }
@@ -72,6 +82,19 @@ TestController.ROUTES = {
     }
 };
 
-TestController.MIDDLEWARE = [];
+TestController.MIDDLEWARE = [
+    function (req, res, next) {
+        if (!req.locals) req.locals = {};
+
+        req.locals.controller_middleware = true;
+        next();
+    },
+    ['allAction', function (req, res, next)  {
+        if (!req.locals) req.locals = {};
+
+        req.locals.action_middleware = true;
+        next();
+    }]
+];
 
 module.exports = TestController;
