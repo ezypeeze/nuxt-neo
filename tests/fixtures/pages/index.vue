@@ -1,7 +1,10 @@
 <template>
     <div class="index">
-        <span v-if="data.ok">It's okay!</span>
-        <span v-else>It's not okay...</span>
+        <span class="path">{{ data.path }}</span>
+        <span class="okay" v-if="data.ok">It's okay!</span>
+        <span class="okay" v-else>It's not okay...</span>
+
+        <button class="change-path" @click="handleClick">Change Path</button>
     </div>
 </template>
 
@@ -17,6 +20,15 @@
 
             return {
                 data: await context.app.$api.users.categories.types.allAction()
+            }
+        },
+        methods: {
+            async handleClick() {
+                try {
+                    this.data = await this.$api.users.allAction();
+                } catch (err) {
+                    console.log(err);
+                }
             }
         }
     }

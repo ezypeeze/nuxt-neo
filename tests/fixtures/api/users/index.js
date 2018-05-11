@@ -5,7 +5,7 @@ class UserController extends Controller {
     allAction({params, query}) {
         return {
             ok: true,
-            path: this.request.path,
+            path: this.request.originalUrl,
             params,
             query,
         }
@@ -14,7 +14,7 @@ class UserController extends Controller {
     createAction({params, body}) {
         return {
             ok: true,
-            path: this.request.path,
+            path: this.request.originalUrl,
             params,
             body,
         }
@@ -23,7 +23,7 @@ class UserController extends Controller {
     updateAction({params, body}) {
         return {
             ok: true,
-            path: this.request.path,
+            path: this.request.originalUrl,
             params,
             body,
         }
@@ -32,7 +32,7 @@ class UserController extends Controller {
     removeAction({params, body}) {
         return {
             ok: true,
-            path: this.request.path,
+            path: this.request.originalUrl,
             params,
             body,
         }

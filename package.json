@@ -1,21 +1,49 @@
 {
-  "name": "nuxt-neo",
-  "version": "0.0.1",
-  "description": "A nuxt module that implements a universal service layer, same-way compatible between server and client side.",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "author": "Pedro Pereira",
-  "license": "MIT",
-  "dependencies": {
-    "config": "^1.30.0",
-    "express": "^4.16.3",
-    "lodash": "^4.17.10"
-  },
-  "devDependencies": {
-    "axios": "^0.18.0",
-    "jest": "^22.4.3",
-    "nuxt": "^1.4.0"
-  }
+    "name": "nuxt-neo",
+    "version": "0.0.1",
+    "description": "A nuxt module that implements a universal service layer, same-way compatible between server and client side.",
+    "main": "index.js",
+    "scripts": {
+        "test": "ava"
+    },
+    "author": "Pedro Pereira",
+    "license": "MIT",
+    "dependencies": {
+        "config": "^1.30.0",
+        "express": "^4.16.3",
+        "lodash": "^4.17.10"
+    },
+    "devDependencies": {
+        "@vue/test-utils": "^1.0.0-beta.16",
+        "ava": "^0.25.0",
+        "axios": "^0.18.0",
+        "babel-eslint": "^8.2.3",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-register": "^6.26.0",
+        "browser-env": "^3.2.5",
+        "eslint": "^4.19.1",
+        "eslint-config-prettier": "^2.9.0",
+        "eslint-loader": "^2.0.0",
+        "eslint-plugin-prettier": "^2.6.0",
+        "eslint-plugin-vue": "^4.5.0",
+        "jsdom": "^11.10.0",
+        "nuxt": "^1.4.0",
+        "prettier": "^1.12.1",
+        "require-extension-hooks": "^0.3.2",
+        "require-extension-hooks-babel": "^0.1.1",
+        "require-extension-hooks-vue": "^1.0.0",
+        "vue-jest": "^2.5.0"
+    },
+    "ava": {
+        "require": [
+            "./tests/setup/babel.js",
+            "./tests/setup/global.js"
+        ]
+    },
+    "babel": {
+        "presets": [
+            "env"
+        ]
+    }
 }
