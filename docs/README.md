@@ -16,24 +16,24 @@ I created this module so you can create your API inside nuxt.js easily, based on
 - Global HTTP Errors for better error handling
 
 ### How it works ###
-- You create a folder and assign it to be your api root folder (e.g: ~/api).
+- You create a folder and assign it to be your api root folder (e.g: ```~/api```).
 - Based on that folder/file tree, it will auto generate your routes:
     - Imagine with this folder structure:
-        - ```bash ~/api/users/index.js ```
-        - ```bash ~/api/users/categories/index.js ```
-        - ```bash ~/api/users/categories/types.js ```
-        - ```bash ~/api/products.js ```
+        - ```~/api/users/index.js ```
+        - ```~/api/users/categories/index.js ```
+        - ```~/api/users/categories/types.js ```
+        - ```~/api/products.js ```
     - The following route prefixes will be generated:
-        - ```bash <api_prefix>/users ```
-        - ```bash <api_prefix>/users/categories ```
-        - ```bash <api_prefix>/users/categories/types ```
-        - ```bash <api_prefix>/products ```
+        - ```<api_prefix>/users ```
+        - ```<api_prefix>/users/categories ```
+        - ```<api_prefix>/users/categories/types ```
+        - ```<api_prefix>/products ```
     - Each .js file will be your controller, which is a class.
     - A controller has a list of routes (its pretty much a resource).
     - A controller can have middleware for all the nested routes or per action.
-- Optional: You create a folder and assign it to be your services root folder (e.g: ~/services).
+- Optional: You create a folder and assign it to be your services root folder (e.g: ```~/services```).
     - Each file inside the services folder is a service class, that receives the request method.
     - a getService method is injected into request object, and you can simply call
-     the service as getService('users')
+     the service as ```getService('users')```
 ### License ###
 MIT

@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/nuxt-neo/',
     locales: {
         '/': {
             lang: 'en-us',
@@ -7,6 +8,7 @@ module.exports = {
         }
     },
     themeConfig: {
+        repo: 'ezypeeze/nuxt-neo',
         locales: {
             '/': {
                 nav: [
@@ -15,8 +17,7 @@ module.exports = {
                         items: [
                             { text: 'English', link: '/' },
                         ]
-                    },
-                    { text: 'GitHub', link: 'https://github.com/ezypeeze/nuxt-neo' }
+                    }
                 ],
                 sidebar: [
                     ['/', 'Intro'],
