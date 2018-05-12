@@ -12,6 +12,10 @@
     "release": "standard-version",
     "push:tags": "git push --follow-tags"
   },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "author": "Pedro Pereira <pedromdspereira.93@gmail.com>",
   "contributors": [
     {
@@ -44,6 +48,7 @@
     "eslint-plugin-vue": "^4.5.0",
     "jsdom": "^11.10.0",
     "nuxt": "^1.4.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^1.12.1",
     "require-extension-hooks": "^0.3.2",
     "require-extension-hooks-babel": "^0.1.1",
