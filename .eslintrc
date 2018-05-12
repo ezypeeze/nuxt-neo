@@ -1,3 +1,37 @@
 {
-    "extends": "standard"
+    "extends": "standard",
+    "root": true,
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "plugins": [
+        "ava",
+        "vue"
+    ],
+    "rules": {
+        // Allow semicolon
+        "semi": 0,
+        // disable space after func parentsis
+        "space-before-function-paren": 0,
+        // Allow paren-less arrow functions
+        "arrow-parens": 0,
+        // Allow async-await
+        "generator-star-spacing": 0,
+        // Do not allow console.logs etc...
+        "no-console": 1,
+        // Allow multi spaces to keep '=' on same column
+        "no-multi-spaces": 0,
+        // No need for empty new line at the end of the file
+        "eol-last": 0,
+		// Force tabs, 4 size
+		"indent": ["error", 4],
+		// Disable no-tabs
+		"no-tabs": 0,
+		// allow mixed operators '&&' and '||'
+		"no-mixed-operators": 0
+    }
 }

@@ -2,11 +2,13 @@
     "name": "nuxt-neo",
     "version": "0.0.1",
     "description": "A nuxt module that implements a universal service layer, same-way compatible between server and client side.",
-    "main": "index.js",
+    "main": "lib/module.js",
     "scripts": {
-        "test": "ava"
+        "test": "ava",
+        "lint": "eslint --ext .js lib",
+        "precommit": "eslint --ext .js lib && ava"
     },
-    "author": "Pedro Pereira",
+    "author": "Pedro Pereira <pedromdspereira.93@gmail.com>",
     "license": "MIT",
     "dependencies": {
         "config": "^1.30.0",
@@ -14,7 +16,6 @@
         "lodash": "^4.17.10"
     },
     "devDependencies": {
-        "@vue/test-utils": "^1.0.0-beta.16",
         "ava": "^0.25.0",
         "axios": "^0.18.0",
         "babel-eslint": "^8.2.3",
@@ -24,8 +25,13 @@
         "browser-env": "^3.2.5",
         "eslint": "^4.19.1",
         "eslint-config-prettier": "^2.9.0",
+        "eslint-config-standard": "^11.0.0",
         "eslint-loader": "^2.0.0",
-        "eslint-plugin-prettier": "^2.6.0",
+        "eslint-plugin-ava": "^4.5.1",
+        "eslint-plugin-import": "^2.11.0",
+        "eslint-plugin-node": "^6.0.1",
+        "eslint-plugin-promise": "^3.7.0",
+        "eslint-plugin-standard": "^3.1.0",
         "eslint-plugin-vue": "^4.5.0",
         "jsdom": "^11.10.0",
         "nuxt": "^1.4.0",
