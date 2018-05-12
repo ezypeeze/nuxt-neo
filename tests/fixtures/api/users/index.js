@@ -1,11 +1,14 @@
-const Controller = require('../../../../lib/Controller');
+class UserController {
 
-class UserController extends Controller {
+    constructor(request) {
+        this.request = request;
+    }
 
-    allAction({params, query}) {
+    async allAction({params, query}) {
         return {
             ok: true,
             path: this.request.originalUrl,
+            users: await this.request.getService('users').fetchAll(),
             params,
             query,
         }

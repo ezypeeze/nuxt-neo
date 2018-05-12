@@ -1,6 +1,8 @@
-const Controller = require('../../lib/Controller');
+class TestController {
 
-class TestController extends Controller {
+    constructor(request) {
+        this.request = request;
+    }
 
     getAction({params, query}) {
         return {
@@ -14,6 +16,10 @@ class TestController extends Controller {
     }
 
     allAction({params, query}) {
+        if (query.force_error) {
+            throw new Error('Forced error');
+        }
+
         return {
             ok: true,
             path: this.request.originalUrl,

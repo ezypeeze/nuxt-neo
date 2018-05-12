@@ -11,7 +11,7 @@ test.after(globalAfterAll());
 
 test('Test api prefix (GET /api/v2)', async (t) => {
     try {
-        await api.get('/api/v2/users/categories');
+        await api.get('/users/categories');
     } catch (err) {
         t.is(err.response.status, 404);
     }

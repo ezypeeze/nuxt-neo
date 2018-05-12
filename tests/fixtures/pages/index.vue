@@ -24,11 +24,7 @@
         },
         methods: {
             async handleClick() {
-                try {
-                    this.data = await this.$api.users.allAction();
-                } catch (err) {
-                    console.log(err);
-                }
+                this.data = await this.$api.users.allAction();
             }
         }
     }

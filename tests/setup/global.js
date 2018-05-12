@@ -28,7 +28,7 @@ global.globalBeforeAll = function ({moduleOptions, nuxtOptions} = {}) {
         global.nuxt = new Nuxt(options);
         // Globalize API requests
         global.api = axios.create({
-            baseURL: URL(options.modules[0][1].api.prefix)
+            baseURL: URL(options.modules[0][1].api.prefix || '/api')
         });
 
         await new Builder(nuxt).build();

@@ -8,9 +8,6 @@ module.exports = {
                 directory: TEST_DIR + '/fixtures/api',
                 debug: true
             },
-            configuration: {
-                directory: TEST_DIR + '/fixtures/config'
-            },
             services: {
                 directory: TEST_DIR + '/fixtures/services'
             }
