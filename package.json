@@ -13,8 +13,7 @@
     "push:tags": "git push --follow-tags"
   },
   "pre-commit": [
-    "lint",
-    "test"
+    "lint"
   ],
   "author": "Pedro Pereira <pedromdspereira.93@gmail.com>",
   "contributors": [
