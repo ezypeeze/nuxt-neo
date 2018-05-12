@@ -1,0 +1,10 @@
+/.eslintrc
+/.eslintignore
+/.editorconfig
+/.travis.yml
+/node_modules
+/CODE_OF_CONDUCT.md
+/docs
+/tests
+/CHANGELOG.md
+/.idea
