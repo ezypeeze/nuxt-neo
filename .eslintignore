@@ -1,1 +1,1 @@
-lib/plugins/**/*.js
+*.template.js
