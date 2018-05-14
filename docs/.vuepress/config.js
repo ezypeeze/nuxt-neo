@@ -22,7 +22,9 @@ module.exports = {
                 sidebar: [
                     ['/', 'Intro'],
                     ['/getting-started', 'Getting Started'],
-                    ['/basic-usage', 'Basic Usage'],
+                    ['/work-flow-usage', 'Work flow Usage'],
+                    ['/api-module', 'API Module'],
+                    ['/service-module', 'Service Module']
                 ]
             }
         }
