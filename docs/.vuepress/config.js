@@ -24,8 +24,8 @@ module.exports = {
                     ['/getting-started', 'Getting Started'],
                     ['/work-flow-usage', 'Work flow Usage'],
                     ['/api-module', 'API Module'],
-                    ['/service-module', 'Service Module']
-                ]
+                    ['/services-module', 'Services Module']
+                ],
             }
         }
     }

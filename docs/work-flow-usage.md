@@ -36,7 +36,6 @@ If you want to disable, for example, ```services```, you should pass the value a
 }
 ```
 
-
 ### API Module ###
 To make the api module to work, you should first create a new folder on your project, lets assume ```~/api```.
 ```js
@@ -114,74 +113,6 @@ it will return a response with ```200``` status code and the given structure:
         }
         // ...
     ]
-}
-```
-
-There are a few magical things here:
-- By default, your api will have the prefix ```/api```, this can be changed editing api options ```prefix```.
-```js
-{
-  modules: [
-    ['nuxt-neo', {
-      api: {
-          directory: __dirname + '/api',
-          prefix: '/api/<some_other_prefix>'
-      },
-    }]
-  ]
-}
-```
-- By default, it will return a json response (with the content being what you return in the controller action),
-with ```200``` status code. If the result returned by the controller action is ```null/undefined/false/empty-array```, 
-it will return ```204``` status code, with no content (which is what the http code standard definition represents).
-You can change this by changing the api options default handlers (more above).
-
-Now Imagine that you have some kind of validation you want to perform before creating a new todo:
-```js
-    // An object is passed to all actions, with the route params, query string and body.
-    async createAction({params, query, body}) {
-        if (!body.title || !body.content) {
-            throw new BadRequestError('Invalid body payload', [
-                !body.title && 'Title is required',
-                !body.content && 'Content is required'
-            ].filter(Boolean));    
-        }
-        
-        return await Todos.create(body.title, body.content);
-    }
-```
-
-Or in case you fetch a todo by id and it doesn't exist:
-```js
-    // An object is passed to all actions, with the route params, query string and body.
-    async getAction({params}) {
-        const todo = await Todos.fetchById(params.id);
-        if (!todo) {
-            throw new NotFoundError(`Todo "${params.id}" doesn't exist.`)
-        }
-                
-        return todo;
-    }
-```
-
-- By default, ```nuxt-neo``` globalizes what we call ```http errors/exceptions```. Those exceptions,
-are a kind of error that is a request flow error (route not found, bad request payload, reserved/private areas).
-If an ```http errors/exceptions``` is throwed, a special kind of response will be sent 
-(e.g bad request will send a list of errors, not found will represent that a given id todo doesn't exist, ...).
-
-**NOTE**: You are not required to use this, you can simply throw a normal error (```Error native class```), its simply a
-nice-to-have way to organize your error handling. If you don't want this classes you can simply disable it doing:
-```js
-{
-  modules: [
-    ['nuxt-neo', {
-      api: {
-          directory: __dirname + '/api',
-          prefix: '/api/<some_other_prefix>',
-          httpErrors: false // disable http global error classes
-      },
-    }]
-  ]
 }
 ```
 
