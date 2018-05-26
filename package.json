@@ -23,6 +23,9 @@
     "type": "git",
     "url": "https://github.com/ezypeeze/nuxt-neo"
   },
+  "bugs": {
+    "url": "https://github.com/ezypeeze/nuxt-neo/issues"
+  },
   "main": "lib/module.js",
   "scripts": {
     "docs:dev": "vuepress dev docs",

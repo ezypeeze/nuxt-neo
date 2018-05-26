@@ -1,5 +1,6 @@
 # API Module #
 
+## Configuration ##
 The default options of the api module are:
 
 ```js

@@ -11,9 +11,7 @@
 <script>
     export default {
         name: 'index',
-        asyncData: asyncData({
-            data: ({app}) => app.$api.users.categories.types.allAction()
-        }),
+        asyncData: async ({app}) => ({data: await app.$api.users.categories.types.allAction()}),
         methods: {
             async handleClick() {
                 this.data = await this.$api.users.allAction();
