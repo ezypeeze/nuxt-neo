@@ -4,18 +4,19 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="0.0.4"></a>
 ## [0.0.4](https://github.com/ezypeeze/nuxt-neo/compare/v0.0.3...v0.0.4) (2018-05-26)
-
-
+- Services are disabled by default
+- Removed ```asyncData``` and ```fetch``` helpers (now vue js root instance has $api injected (a.k.a app key))
+- Controller tree is generated on every request
+- Updated documentation
 
 <a name="0.0.3"></a>
-## 0.0.3 (2018-05-14)
-
-
+## [0.0.3](https://github.com/ezypeeze/nuxt-neo/compare/v0.0.2...v0.0.3) (2018-05-14)
+Minor updates.
 
 <a name="0.0.2"></a>
-## 0.0.2 (2018-05-14)
-
-
+## [0.0.2](https://github.com/ezypeeze/nuxt-neo/compare/v0.0.1...v0.0.2) (2018-05-14)
+Minor updates. Documentation.
 
 <a name="0.0.1"></a>
 ## [0.0.1](https://github.com/ezypeeze/nuxt-neo/releases/tag/v0.0.1) (2018-05-12)
+First release
