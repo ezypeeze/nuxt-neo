@@ -2,16 +2,11 @@ language: node_js
 sudo: false
 node_js:
     - "8"
-cache:
-    npm: true
-    directories:
-        - node_modules
 install:
     - npm install
 script:
     - npm run lint
     - npm test
-
 deploy:
   - provider: npm
     api_key: ${NPM_API_KEY}
