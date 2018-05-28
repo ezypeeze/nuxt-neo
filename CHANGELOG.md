@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/ezypeeze/nuxt-neo/compare/v1.0.0...v1.0.1) (2018-05-28)
+### Bug Fixes
+- Error response handler handles now the proper error, instead of moving to nuxt error handling. ([17b1974](https://github.com/ezypeeze/nuxt-neo/commit/17b1974))
+- Fixed docs basic-usage.md (add two 'export default' on client side api handler example) ([ba06cdf](https://github.com/ezypeeze/nuxt-neo/commit/ba06cdf))
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/ezypeeze/nuxt-neo/compare/v0.0.5...v1.0.0) (2018-05-28)
 - Removed Services Module
