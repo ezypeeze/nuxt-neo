@@ -2,24 +2,22 @@ import test from 'ava';
 
 test.before(globalBeforeAll({
     moduleOptions: {
-        api: {
-            prefix: '/api/v2',
-            successHandler: function ({ok, params}, req) {
-                return {
-                    meta: {
-                        offset: req.query.offset,
-                        limit: req.query.limit,
-                        ok
-                    },
-                    payload: params,
-                }
-            },
-            errorHandler: function (err) {
-                throw new Error('[NEW ERROR] ' + err.message);
-            },
-            notFoundRouteResponse: function (req, res) {
-                return res.status(404).json({message: `The route "${req.url}" was not found.`});
+        prefix: '/api/v2',
+        successHandler: function ({ok, params}, req) {
+            return {
+                meta: {
+                    offset: req.query.offset,
+                    limit: req.query.limit,
+                    ok
+                },
+                payload: params,
             }
+        },
+        errorHandler: function (err) {
+            throw new Error('[NEW ERROR] ' + err.message);
+        },
+        notFoundRouteResponse: function (req, res) {
+            return res.status(404).json({message: `The route "${req.url}" was not found.`});
         }
     }
 }));

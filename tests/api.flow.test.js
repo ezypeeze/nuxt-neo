@@ -2,9 +2,7 @@ import test from 'ava';
 
 test.before(globalBeforeAll({
     moduleOptions: {
-        api: {
-            prefix: '/api/v2'
-        }
+        prefix: '/api/v2'
     }
 }));
 test.after(globalAfterAll());

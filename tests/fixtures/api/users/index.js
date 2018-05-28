@@ -8,7 +8,6 @@ class UserController {
         return {
             ok: true,
             path: this.request.originalUrl,
-            users: await this.request.getService('users').fetchAll(),
             params,
             query,
         }

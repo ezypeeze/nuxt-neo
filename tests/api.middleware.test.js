@@ -2,25 +2,23 @@ import test from 'ava';
 
 test.before(globalBeforeAll({
     moduleOptions: {
-        api: {
-            prefix: '/api/v2',
-            middleware: [
-                function (req, res, next) {
-                    req.locals = {
-                        test: true
-                    };
+        prefix: '/api/v2',
+        middleware: [
+            function (req, res, next) {
+                req.locals = {
+                    test: true
+                };
 
-                    next();
-                },
-                function (req, res, next) {
-                    if (req.query.middleware_response) {
-                        return res.status(200).json(req.locals);
-                    }
-
-                    next();
+                next();
+            },
+            function (req, res, next) {
+                if (req.query.middleware_response) {
+                    return res.status(200).json(req.locals);
                 }
-            ]
-        }
+
+                next();
+            }
+        ]
     }
 }));
 test.after(globalAfterAll());

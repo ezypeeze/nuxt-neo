@@ -1,40 +1,6 @@
-# Work Flow Usage #
+# Basic Usage #
 
 After you installed ```nuxt-neo``` package and added there are some required options you must set.
-
-The main idea is that this project extends nuxt functionality for the server-side and 
-to make a smooth and simplified communication between client an server.
-
-For that reason ```nuxt-neo``` options tree are separated by context modules that can be integrated independently.
-
-```js
-{
-  modules: [
-    ['nuxt-neo', {
-      api: {
-          // api related options
-      },
-      services: {
-          // services related options
-      }
-    }]
-  ]
-}
-```
-
-If you want to disable, for example, ```services```, you should pass the value as ```false```:
-```js
-{
-  modules: [
-    ['nuxt-neo', {
-      api: {
-          // api related options
-      },
-      services: false
-    }]
-  ]
-}
-```
 
 ## Creating your API ##
 Create a new folder on your project, lets assume ```~/api```.
@@ -42,9 +8,7 @@ Create a new folder on your project, lets assume ```~/api```.
 {
   modules: [
     ['nuxt-neo', {
-      api: {
-          directory: __dirname + '/api'
-      },
+        directory: __dirname + '/api'
     }]
   ]
 }
@@ -122,12 +86,7 @@ First you need to create your client-side http request handler:
 {
   modules: [
     ['nuxt-neo', {
-      api: {
-          clientSideApiHandler: '~/api_handler' // since its client-side we can use alias resolver '~'
-      },
-      services: {
-          // services related options
-      }
+        clientSideApiHandler: '~/api_handler' // since its client-side we can use alias resolver '~'
     }]
   ]
 }

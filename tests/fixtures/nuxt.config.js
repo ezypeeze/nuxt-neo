@@ -4,13 +4,8 @@ const TEST_DIR = __dirname + '/..';
 module.exports = {
     modules: [
         [LIB_DIR + '/module', {
-            api: {
-                directory: TEST_DIR + '/fixtures/api',
-                debug: true
-            },
-            services: {
-                directory: TEST_DIR + '/fixtures/services'
-            }
+            directory: TEST_DIR + '/fixtures/api',
+            debug: true
         }]
     ],
 
