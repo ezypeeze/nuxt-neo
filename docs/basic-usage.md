@@ -96,24 +96,20 @@ Lets create our handler now (e.g we using axios to take care of this for us):
 // file: ~/api_handler
 import axios from 'axios';
 
-export default () {
-    
-    // path is the relative path of the route
-    // verb is the method type
-    // {query, body, params} are the given payload to send
-    // {prefix} are api options (prefix is the api prefix, e.g: '/api') 
-    export default (path, verb, {query, body}, {prefix}) => {
-        return axios({
-            baseURL: `http://${process.env.HOST}:${process.env.PORT}${prefix || ''}`,
-            timeout: 10000,
-            url: path,
-            method: verb.toLowerCase(),
-            data: body,
-            params: query
-        }).then(({data}) => data);
-    };
-
-}
+// path is the relative path of the route
+// verb is the method type
+// {query, body, params} are the given payload to send
+// {prefix} are api options (prefix is the api prefix, e.g: '/api') 
+export default (path, verb, {query, body}, {prefix}) => {
+    return axios({
+        baseURL: `http://${process.env.HOST}:${process.env.PORT}${prefix || ''}`,
+        timeout: 10000,
+        url: path,
+        method: verb.toLowerCase(),
+        data: body,
+        params: query
+    }).then(({data}) => data);
+};
 ```
 
 **NOTE**: You must return exactly what the controller action + ```successHandler``` return,
