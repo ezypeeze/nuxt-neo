@@ -46,3 +46,21 @@ nice-to-have way to organize your error handling. If you don't want this classes
   ]
 }
 ```
+
+## List of HTTP Error Exceptions ##
+- BadRequestError (status = 400)
+```js
+new BadRequestError(message = 'Invalid Request', errors = ['Name not found'])
+```
+- UnauthorizedError (status = 401)
+```js
+new UnauthorizedError(message = 'No Session')
+```
+- ForbiddenError (status = 403)
+```js
+new ForbiddenError(message = 'No access to this area')
+```
+- NotFoundError (status = 404)
+```js
+new NotFoundError(message = 'The resource was not found')
+```
