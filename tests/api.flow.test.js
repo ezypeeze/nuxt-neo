@@ -7,22 +7,14 @@ test.before(globalBeforeAll({
 }));
 test.after(globalAfterAll());
 
-test('Test api prefix (GET /api/v2)', async (t) => {
-    try {
-        await api.get('/users/categories');
-    } catch (err) {
-        t.is(err.response.status, 404);
-    }
-});
-
 test('Test first level api (GET /api/v2/users)', async (t) => {
     const {data} = await api.get('/users');
     t.true(data.ok);
 });
 
-test('Test second level api (GET /api/v2/users/categories) - should give 404', async (t) => {
+test('Test second level api (GET /api/v2/foo) - should give 404', async (t) => {
     try {
-        await api.get('/users/categories');
+        await api.get('/foo');
     } catch (err) {
         t.is(err.response.status, 404);
     }
@@ -60,11 +52,13 @@ test('Test hybrid api data flow client side', async (t) => {
     const clickEvent = new window.Event('click');
     const path       = window.document.querySelector('.index span.path');
     const okay       = window.document.querySelector('.index span.okay');
+    const idParam    = window.document.querySelector('.index span.id-param');
     const changePath = window.document.querySelector('.index .change-path');
 
     changePath.dispatchEvent(clickEvent);
     await new Promise(resolve => setTimeout(resolve, 1000)); // wait for API request
 
-    t.is(path.textContent, '/api/v2/users');
+    t.is(path.textContent, '/api/v2/users/1');
     t.is(okay.textContent, "It's okay!");
+    t.is(idParam.textContent, '1');
 });

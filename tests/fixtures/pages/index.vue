@@ -1,6 +1,7 @@
 <template>
     <div class="index">
         <span class="path">{{ data.path }}</span>
+        <span class="id-param">{{ data.params && data.params.id }}</span>
         <span class="okay" v-if="data.ok">It's okay!</span>
         <span class="okay" v-else>It's not okay...</span>
 
@@ -14,7 +15,7 @@
         asyncData: async ({app}) => ({data: await app.$api.users.categories.types.allAction()}),
         methods: {
             async handleClick() {
-                this.data = await this.$api.users.allAction();
+                this.data = await this.$api.users.getAction({params: {id: 1}});
             }
         }
     }

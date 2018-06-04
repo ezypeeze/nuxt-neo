@@ -13,6 +13,15 @@ class UserController {
         }
     }
 
+    async getAction({params, query}) {
+        return {
+            ok: true,
+            path: this.request.originalUrl,
+            params,
+            query,
+        }
+    }
+
     createAction({params, body}) {
         return {
             ok: true,
@@ -45,6 +54,10 @@ class UserController {
 UserController.ROUTES = {
     allAction: {
         path: '/',
+        verb: 'GET'
+    },
+    getAction: {
+        path: '/:id',
         verb: 'GET'
     },
     createAction: {
