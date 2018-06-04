@@ -137,7 +137,7 @@ properties for server-side fetching on vue.js pages, we can simply do this:
         asyncData: async ({app}) => ({todos: await app.$api.todos.allAction()}),
         methods: {
             async handleClick(id) {
-                this.currentTodo = await this.$api.todos.getAction({id});
+                this.currentTodo = await this.$api.todos.getAction({params: {id}});
             }
         }
     }
