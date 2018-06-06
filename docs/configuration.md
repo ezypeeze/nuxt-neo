@@ -21,6 +21,9 @@ The default options are:
     // Client side http request handler -- required
     clientSideApiHandler: '~/api_handler',
     
+    // Universal response handler (will run both on client side and server side $api calls) -- optional
+    responseMiddleware: null,
+    
     // Middleware handlers for all your api.
     middleware: [],
     
