@@ -40,8 +40,10 @@ test('Test hybrid api data flow server side.', async (t) => {
     const window           = await nuxt.renderAndGetWindow(URL('/'));
     const path             = window.document.querySelector('.index span.path');
     const okay             = window.document.querySelector('.index span.okay');
+    const resMiddle        = window.document.querySelector('.index span.response-middleware');
 
     t.is(okay.textContent, "It's okay!");
+    t.is(resMiddle.textContent, "It's okay!");
 
     // Since it accessed to controller on server side, the request path should be '/' which was what we rendered above
     t.is(path.textContent, '/');
@@ -54,6 +56,7 @@ test('Test hybrid api data flow client side', async (t) => {
     const okay       = window.document.querySelector('.index span.okay');
     const idParam    = window.document.querySelector('.index span.id-param');
     const changePath = window.document.querySelector('.index .change-path');
+    const resMiddle  = window.document.querySelector('.index span.response-middleware');
 
     changePath.dispatchEvent(clickEvent);
     await new Promise(resolve => setTimeout(resolve, 1000)); // wait for API request
@@ -61,4 +64,5 @@ test('Test hybrid api data flow client side', async (t) => {
     t.is(path.textContent, '/api/v2/users/1');
     t.is(okay.textContent, "It's okay!");
     t.is(idParam.textContent, '1');
+    t.is(resMiddle.textContent, "It's okay!");
 });

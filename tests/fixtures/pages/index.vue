@@ -4,6 +4,8 @@
         <span class="id-param">{{ data.params && data.params.id }}</span>
         <span class="okay" v-if="data.ok">It's okay!</span>
         <span class="okay" v-else>It's not okay...</span>
+        <span class="response-middleware" v-if="data.response_middleware">It's okay!</span>
+        <span class="response-middleware" v-else>It's not okay...</span>
 
         <button class="change-path" @click="handleClick">Change Path</button>
     </div>

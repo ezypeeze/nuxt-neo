@@ -5,7 +5,8 @@ module.exports = {
     modules: [
         [LIB_DIR + '/module', {
             directory: TEST_DIR + '/fixtures/api',
-            debug: true
+            debug: true,
+            responseMiddleware: '~/response_middleware'
         }]
     ],
 
