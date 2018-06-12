@@ -46,6 +46,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "config": "^1.30.0",
     "express": "^4.16.3",
     "lodash": "^4.17.10"
@@ -72,6 +73,7 @@
     "nuxt": "^1.4.0",
     "pre-commit": "^1.2.2",
     "prettier": "^1.12.1",
+    "querystring": "^0.2.0",
     "require-extension-hooks": "^0.3.2",
     "require-extension-hooks-babel": "^0.1.1",
     "require-extension-hooks-vue": "^1.0.0",
