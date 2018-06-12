@@ -32,8 +32,9 @@
     "docs:build": "vuepress build docs",
     "test": "ava",
     "lint": "eslint --ext .js lib",
-    "release": "standard-version  --no-verify",
-    "push:tags": "git push --follow-tags"
+    "release:patch": "standard-version --no-verify --release-as patch",
+    "release:minor": "standard-version --no-verify --release-as minor",
+    "push:tags": "git push --tags"
   },
   "pre-commit": [
     "lint"
@@ -91,10 +92,5 @@
     "presets": [
       "env"
     ]
-  },
-  "standard-version": {
-    "skip": {
-      "commit": true
-    }
   }
 }
