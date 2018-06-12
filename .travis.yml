@@ -3,10 +3,14 @@ sudo: false
 node_js:
     - "8"
 install:
+    - npm install -g nyc ava codecov
     - npm install
 script:
     - npm run lint
     - npm test
+    - nyc ava
+    - nyc report --reporter=lcov > coverage.lcov
+    - codecov -t ${CODECOV_TOKEN}
 deploy:
   - provider: npm
     api_key: ${NPM_API_KEY}
