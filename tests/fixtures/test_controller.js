@@ -30,7 +30,11 @@ class TestController {
         }
     }
 
-    createAction({params, body}) {
+    createAction({params, body, query}) {
+        if (query.exception && global[query.exception]) {
+            throw new global[query.exception](query.message);
+        }
+
         return {
             ok: true,
             path: this.request.originalUrl,

@@ -14,6 +14,10 @@ test.before(globalBeforeAll({
             }
         },
         errorHandler: function (err) {
+            if (err && err.statusCode) {
+                throw err;
+            }
+
             throw new Error('[NEW ERROR] ' + err.message);
         },
         notFoundRouteResponse: function (req, res) {
@@ -36,6 +40,33 @@ test('Test error handler', async (t) => {
     } catch (err) {
         t.is(err.response.status, 500);
         t.is(err.response.data.message, '[NEW ERROR] Forced error');
+    }
+});
+
+test('Test bad request response due invalid input data', async (t) => {
+    try {
+        await api.post('/products?exception=BadRequestError&message=bad_request');
+    } catch (err) {
+        t.is(err.response.status, 400);
+        t.is(err.response.data.message, 'bad_request');
+    }
+});
+
+test('Test unauthorized context response due invalid input data', async (t) => {
+    try {
+        await api.post('/products?exception=UnauthorizedError&message=no_access');
+    } catch (err) {
+        t.is(err.response.status, 401);
+        t.is(err.response.data.message, 'no_access');
+    }
+});
+
+test('Test forbidden context response due invalid input data', async (t) => {
+    try {
+        await api.post('/products?exception=ForbiddenError');
+    } catch (err) {
+        t.is(err.response.status, 403);
+        t.is(err.response.data.message, 'Forbidden');
     }
 });
 

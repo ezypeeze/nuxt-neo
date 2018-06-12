@@ -1,3 +1,5 @@
+const users = [];
+
 class UserController {
 
     constructor(request) {
@@ -10,6 +12,7 @@ class UserController {
             path: this.request.originalUrl,
             params,
             query,
+            users
         }
     }
 
@@ -19,15 +22,19 @@ class UserController {
             path: this.request.originalUrl,
             params,
             query,
+            user: users.filter(user => user.id === params.id)
         }
     }
 
     createAction({params, body}) {
+        users.push(Object.assign({}, body, {id: users.length + 1}));
+
         return {
             ok: true,
             path: this.request.originalUrl,
             params,
             body,
+            user: users[users.length - 1]
         }
     }
 
