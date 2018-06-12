@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/ezypeeze/nuxt-neo.svg?branch=master)](https://travis-ci.org/ezypeeze/nuxt-neo)
 [![Current NPM Version](https://badge.fury.io/js/nuxt-neo.svg)](https://badge.fury.io/js/nuxt-neo)
 [![Dependencies](https://david-dm.org/ezypeeze/nuxt-neo.svg)](https://david-dm.org/ezypeeze/nuxt-neo.svg)
+[![Codecov](https://codecov.io/gh/ezypeeze/nuxt-neo/branch/master/graph/badge.svg)](https://codecov.io/gh/ezypeeze/nuxt-neo)
 [![Monthly Downloads](https://img.shields.io/npm/dm/nuxt-neo.svg)](https://img.shields.io/npm/dm/nuxt-neo.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/ezypeeze/nuxt-neo/badge.svg)](https://snyk.io/test/github/ezypeeze/nuxt-neo)
 
