@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/ezypeeze/nuxt-neo/compare/v1.1.0...v1.2.0) (2018-06-12)
+
+
+### Features
+
+* **bodyParsers:** add body parsers middleware option (using express/body-parsers lib or custom handler). [#1](https://github.com/ezypeeze/nuxt-neo/issues/1) ([e9cb273](https://github.com/ezypeeze/nuxt-neo/commit/e9cb273))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/ezypeeze/nuxt-neo/compare/v1.0.2...v1.1.0) (2018-06-06)
 
