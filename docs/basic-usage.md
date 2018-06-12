@@ -125,7 +125,7 @@ properties for server-side fetching on vue.js pages, we can simply do this:
             Current todo is: {{currentTodo.title}}
         </div>
     
-        <div v-for="todo in todos">
+        <div v-for="todo in todos.items">
             {{todo.title}}
             <button @click="handleClick(todo.id)">Click for details</button>
         </div>
@@ -146,3 +146,22 @@ properties for server-side fetching on vue.js pages, we can simply do this:
 
 - ```$api``` is injected into all Vue instances (including root), since ```asyncData``` doesn't have ```this```
 property.
+- If ```asyncData``` is called on server-side, it will go directly to your controller action code. If its called on
+client-side it uses your ```clientSideApiHandler``` to handle the api request. However, if ```asyncData``` is called on server-side,
+api, controller and action middleware will not be triggered, because server-side ```$api``` calls are private and programmatically,
+so your code knows what it's doing (or not :D).
+- When calling an ```action``` (e.g: ```todos.allActions```), it accepts an object as param:
+```json
+{
+    // the route params, same as express
+    params: {id: 1}, 
+    
+    // the request body (in server side is server directly as JSON, 
+    // in client side its your api handler that should define which encode type to use)
+    body: {foo: true},
+    
+    // the url query string (in server side is server directly as JSON,
+    // in client side its your api handler that should assemble to url query string (axios does that out-of-the-box)
+    query: {bar: true}
+}
+```
