@@ -3,4 +3,5 @@ node_modules
 *.log
 .nuxt
 dist
-deploy_docs.sh
+.nyc_output
+coverage
