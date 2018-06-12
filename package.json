@@ -1,6 +1,6 @@
 {
   "name": "nuxt-neo",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A nuxt.js module that implements a universal api layer, same-way compatible between server and client side.",
   "keywords": [
     "nuxt",
@@ -32,9 +32,8 @@
     "docs:build": "vuepress build docs",
     "test": "ava",
     "lint": "eslint --ext .js lib",
-    "release:patch": "standard-version --no-verify --release-as patch",
-    "release:minor": "standard-version --no-verify --release-as minor",
-    "push:tags": "git push --tags"
+    "release:patch": "sure && standard-version --no-verify --release-as patch && git push --tags",
+    "release:minor": "sure && standard-version --no-verify --release-as minor && git push --tags"
   },
   "pre-commit": [
     "lint"
@@ -79,6 +78,7 @@
     "require-extension-hooks-babel": "^0.1.1",
     "require-extension-hooks-vue": "^1.0.0",
     "standard-version": "^4.3.0",
+    "sure": "^0.0.3",
     "vuepress": "^0.8.4"
   },
   "ava": {
