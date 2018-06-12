@@ -9,6 +9,11 @@ The default options are:
     // api prefix path
     prefix: '/api', 
     
+    // Request body parser (using expressjs/body-parser: https://github.com/expressjs/body-parser).
+    // String | Array<String> | Object<{adapter: String, options: Object}> |
+    // Array<Object<{adapter: String, options: Object}>>
+    bodyParsers: 'json', 
+    
     // globalize http error classes (BadRequestError, NotFoundError, ...)
     httpErrors: true, 
     
