@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/ezypeeze/nuxt-neo/compare/v1.2.1...v1.3.0) (2018-07-03)
+### Features
 * **feat(clientSideApiHandler):** add app object (root vue instance) in clientSideApiHandler param.
 
 
