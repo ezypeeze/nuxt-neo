@@ -93,17 +93,15 @@ TestController.ROUTES = {
 };
 
 TestController.MIDDLEWARE = [
-    function (req, res, next) {
+    function (req) {
         if (!req.locals) req.locals = {};
 
         req.locals.controller_middleware = true;
-        next();
     },
-    ['allAction', function (req, res, next)  {
+    ['allAction', function (req)  {
         if (!req.locals) req.locals = {};
 
         req.locals.action_middleware = true;
-        next();
     }]
 ];
 

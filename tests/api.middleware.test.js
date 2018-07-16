@@ -4,29 +4,15 @@ test.before(globalBeforeAll({
     moduleOptions: {
         prefix: '/api/v2',
         middleware: [
-            function (req, res, next) {
+            function (req) {
                 req.locals = {
                     test: true
                 };
-
-                next();
-            },
-            function (req, res, next) {
-                if (req.query.middleware_response) {
-                    return res.status(200).json(req.locals);
-                }
-
-                next();
             }
         ]
     }
 }));
 test.after(globalAfterAll());
-
-test('Test middleware for all api', async (t) => {
-    const {data} = await api.get('/users?middleware_response=true');
-    t.true(data.test);
-});
 
 test('Test middleware for a controller', async (t) => {
     const getProducts   = await api.get('/products');
