@@ -10,6 +10,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **middleware:** change middleware flow to make it more enrich/error based ([db639dd](https://github.com/ezypeeze/nuxt-neo/commit/db639dd))
 
+### Breaking Changes
+- Middlewares changed behaviour to be able to work both client and server side. Check the documentation.
 
 
 <a name="1.3.0"></a>
