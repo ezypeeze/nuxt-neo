@@ -64,3 +64,7 @@ new ForbiddenError(message = 'No access to this area')
 ```js
 new NotFoundError(message = 'The resource was not found')
 ```
+- InternalServerError (status = 500)
+```js
+new InternalServerError(message = 'An internal error has occurred.')
+```

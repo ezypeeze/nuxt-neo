@@ -8,16 +8,13 @@ It's possible to add middleware into 3 parts of your API:
     ['nuxt-neo', {
       // ...
       middleware: [
-        function (req, res, next) {
+        function (req) {
             console.log('first');
-            next()
         },
-        function (req, res, next) {
+        function (req) {
             if (req.query.fail === 'true') {
-                return res.status(500).send();
+                throw new Error("force fail");
             }
-                      
-            next();
         }
       ]
       // ...
@@ -40,9 +37,8 @@ TodoController.ROUTES = {
 };
 
 TodoController.MIDDLEWARE = [
-    function (req, res, next) {
-        console.log('second');
-        next();
+    function (req) {
+        console.log('first');
     }
 ]
 ```
@@ -60,17 +56,20 @@ TodoController.ROUTES = {
 
 TodoController.MIDDLEWARE = [
     ['allAction',
-     function (req, res, next) {
+     function (req) {
          console.log('second');
-         next();
      },
-     function (req, res, next) {
-         console.log('third');
-         next();
+     function (req) {
+         // supports promises
+         return Promise.resolve().then(() => console.log('third'));
      }
     ]
 ]
 ```
+
+*NOTE:* The middleware is mostly used to block access and enrich request object with data.
+ You only have access to ```request``` object and can only break the continuation to the controller action
+ throwing errors (e.g : ```throw new InternalServer("I dont want to continue")```);
 
 ## Response Middleware ##
 You will mostly get to the point to make your api payload data more structured and abstracted. 
