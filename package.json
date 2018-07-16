@@ -33,7 +33,8 @@
     "test": "ava",
     "lint": "eslint --ext .js lib",
     "release:patch": "sure && standard-version --no-verify --release-as patch && git push --tags",
-    "release:minor": "sure && standard-version --no-verify --release-as minor && git push --tags"
+    "release:minor": "sure && standard-version --no-verify --release-as minor && git push --tags",
+    "release:major": "sure && standard-version --no-verify --release-as major && git push --tags"
   },
   "pre-commit": [
     "lint"
