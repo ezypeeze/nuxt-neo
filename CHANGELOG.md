@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/ezypeeze/nuxt-neo/compare/v1.3.0...v2.0.0) (2018-07-16)
+
+
+### Features
+
+* **middleware:** change middleware flow to make it more enrich/error based ([db639dd](https://github.com/ezypeeze/nuxt-neo/commit/db639dd))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/ezypeeze/nuxt-neo/compare/v1.2.1...v1.3.0) (2018-07-03)
 
