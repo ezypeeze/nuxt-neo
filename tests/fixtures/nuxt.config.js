@@ -1,10 +1,8 @@
 const LIB_DIR  = __dirname + '/../../lib';
-const TEST_DIR = __dirname + '/..';
 
 module.exports = {
     modules: [
         [LIB_DIR + '/module', {
-            directory: TEST_DIR + '/fixtures/api',
             debug: true,
             responseMiddleware: '~/response_middleware'
         }]
