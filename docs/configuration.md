@@ -23,22 +23,20 @@ The default options are:
     // If controller action return is null/empty, return 204 No Content
     noContentStatusOnEmpty: true,
     
-    // Client side http request handler -- required
-    clientSideApiHandler: '~/api_handler',
-    
-    // Universal response handler (will run both on client side and server side $api calls) -- optional
-    responseMiddleware: null,
-    
     // Middleware handlers for all your api.
     middleware: [],
     
-    // Success Handler - used to adjust your api response strucuture
-    successHandler: function (result) {
-        return result;
-    },
+    // Client side http request handler -- required
+    clientSideApiHandler: '~/api_handler',
+    
+    // Universal success handler (will run both on client side and server side $api calls) -- optional
+    successHandler: null,
+    
+    // Universal error handler (will run both on client side and server side $api calls) -- optional
+    errorHandler: null,
     
     // Success Response handler - will decide how the data will be send (as json, xml, etc..)
-    successResponse: function (req, res, options) {
+    serverSuccessResponse: function (req, res, options) {
         if (!res.result && options.noContentStatusOnEmpty) {
             return res.status(204).send();
         }
@@ -46,14 +44,8 @@ The default options are:
         return res.status(200).json(res.result);
     },
     
-    // Error Handler - used to decide how the error will be handle before sending the response
-    // can be used to, for example, to send logs to some provider
-    errorHandler: function (err) {
-        throw err;
-    },
-    
     // Error Response handler - will decide how the error will be send to the client
-    errorResponse: function (err, req, res, options) {
+    serverErrorResponse: function (err, req, res, options) {
         if (err && err.statusCode) {
             return res.status(err.statusCode).json({
                 message: err.message,
@@ -75,7 +67,7 @@ The default options are:
     },
     
     // In case the route wasn't found,  will decide what to send to the client
-    notFoundRouteResponse: function (req, res) {
+    serverNotFoundRouteResponse: function (req, res) {
             return res.status(404).json({message: 'Route not found'});
     }
 }

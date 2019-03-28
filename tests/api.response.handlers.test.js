@@ -3,24 +3,17 @@ import test from 'ava';
 test.before(globalBeforeAll({
     moduleOptions: {
         prefix: '/api/v2',
-        successHandler: function ({ok, params}, req) {
-            return {
-                meta: {
-                    offset: req.query.offset,
-                    limit: req.query.limit,
-                    ok
-                },
-                payload: params,
-            }
+        serverSuccessResponse: function (req, res) {
+            return res.status(200).json({meta: {ok: true}, payload: res.result});
         },
-        errorHandler: function (err) {
-            if (err && err.statusCode) {
-                throw err;
+        serverErrorResponse: function (err, req, res) {
+            if (err.httpError) {
+                return res.status(err.statusCode).json({message: err.message});
             }
 
-            throw new Error('[NEW ERROR] ' + err.message);
+            return res.status(500).json({message: "[NEW ERROR] Forced error"});
         },
-        notFoundRouteResponse: function (req, res) {
+        serverNotFoundRouteResponse: function (req, res) {
             return res.status(404).json({message: `The route "${req.url}" was not found.`});
         }
     }

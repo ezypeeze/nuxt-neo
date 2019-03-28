@@ -1,3 +1,5 @@
+/yarn.lock
+/deploy_docs.sh
 /.eslintrc
 /.eslintignore
 /.editorconfig
@@ -8,3 +10,4 @@
 /tests
 /CHANGELOG.md
 /.idea
+/.nuxt

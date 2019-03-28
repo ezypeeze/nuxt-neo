@@ -82,7 +82,7 @@ To do this, define the response middleware file into module config:
   modules: [
     ['nuxt-neo', {
       // ...
-      responseMiddleware: '~/response_middleware'
+      successHandler: '~/success_handler'
       // ...
     }
   ]
@@ -91,7 +91,7 @@ To do this, define the response middleware file into module config:
 
 Then create that file:
 ```js
-// ~/response_middleware.js
+// ~/success_handler.js
 
 class Collection() {
     

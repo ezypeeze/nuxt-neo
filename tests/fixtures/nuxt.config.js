@@ -4,7 +4,7 @@ module.exports = {
     modules: [
         [LIB_DIR + '/module', {
             debug: true,
-            responseMiddleware: '~/response_middleware'
+            successHandler: '~/success_handler'
         }]
     ],
 

@@ -4,7 +4,7 @@
         <span class="id-param">{{ data.params && data.params.id }}</span>
         <span class="okay" v-if="data.ok">It's okay!</span>
         <span class="okay" v-else>It's not okay...</span>
-        <span class="response-middleware" v-if="data.response_middleware">It's okay!</span>
+        <span class="response-middleware" v-if="data.success_handler">It's okay!</span>
         <span class="response-middleware" v-else>It's not okay...</span>
         <span class="number-of-users">{{ users.length }}</span>
         <span class="first-user" v-if="users && users[0]">{{ users[0].first_name }}</span>
@@ -18,7 +18,11 @@
 <script>
     export default {
         name: 'index',
-        asyncData: async ({app}) => {
+        asyncData: async ({app, route}) => {
+            if (route.query.nuxtError) {
+                return await app.$api.nuxtError.error();
+            }
+
             await app.$api.users.createAction({body: { first_name: 'first', last_name: 'user' } });
             const {users} = await app.$api.users.allAction();
 
