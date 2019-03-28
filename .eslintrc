@@ -32,6 +32,9 @@
 		// Disable no-tabs
 		"no-tabs": 0,
 		// allow mixed operators '&&' and '||'
-		"no-mixed-operators": 0
+		"no-mixed-operators": 0,
+        // node deprecated api
+        "node/no-deprecated-api":  0
+
     }
 }
