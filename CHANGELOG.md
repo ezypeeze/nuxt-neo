@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.1](https://github.com/ezypeeze/nuxt-neo/compare/v3.0.0...v3.0.1) (2019-03-28)
+
+
+### Bug Fixes
+
+* revert the url.URL change due eslint suggestion ([eebdb70](https://github.com/ezypeeze/nuxt-neo/commit/eebdb70))
+
+
+
 # [3.0.0](https://github.com/ezypeeze/nuxt-neo/compare/v2.0.2...v3.0.0) (2019-03-28)
 
 ### Feature
