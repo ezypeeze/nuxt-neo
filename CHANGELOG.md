@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [3.0.0](https://github.com/ezypeeze/nuxt-neo/compare/v2.0.2...v3.0.0) (2019-03-28)
+
+### Feature
+* support both client and server side success and error handlers
+* add nuxt error page function resolver as errorHandler parameter
+* add http error classes both on server and client side
+
+### Bug Fixes
+* convert camelCase controller file name to dash case (for route url's endpoint)
+ 
+### Other
+* upgrade devDependencies (including nuxt)
+
+### BREAKING CHANGES
+* **responseMiddleware** is now called **successHandler** (**successHandler** function was removed) (used both on client and server side)
+* **errorHandler** is now a string (file path), instead of a function (used both on client and server side)
+* **successResponse** was renamed to serverSuccessResponse
+* **errorResponse** was renamed to **serverErrorResponse**
+* **notFoundRouteResponse** was renamed to **serverNotFoundRouteResponse**
+
+
+
 <a name="2.0.2"></a>
 ## [2.0.2](https://github.com/ezypeeze/nuxt-neo/compare/v2.0.1...v2.0.2) (2018-07-19)
 
