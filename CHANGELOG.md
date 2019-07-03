@@ -1,6 +1,15 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [3.0.2](https://github.com/ezypeeze/nuxt-neo/compare/v3.0.1...v3.0.2) (2019-07-03)
+
+
+### Bug Fixes
+
+* error responses were passed as resolved instead of catched if no errorHandler option was passed, also errorHandler was never passed to the client-side api ([07deb3e](https://github.com/ezypeeze/nuxt-neo/commit/07deb3e))
+
+
 
 ## [3.0.1](https://github.com/ezypeeze/nuxt-neo/compare/v3.0.0...v3.0.1) (2019-03-28)
 
