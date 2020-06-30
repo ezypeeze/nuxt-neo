@@ -51,20 +51,20 @@ class TodoController {
 }
 
 TodoController.ROUTES = {
-    //...
+    allAction: {
+        verb: "GET",
+        path: "/",
+        middleware: [
+            function (req) {
+                console.log('second');
+            },
+            function (req) {
+                // supports promises
+                return Promise.resolve().then(() => console.log('third'));
+            }
+        ]
+    }
 };
-
-TodoController.MIDDLEWARE = [
-    ['allAction',
-     function (req) {
-         console.log('second');
-     },
-     function (req) {
-         // supports promises
-         return Promise.resolve().then(() => console.log('third'));
-     }
-    ]
-]
 ```
 
 *NOTE:* The middleware is mostly used to block access and enrich request object with data.

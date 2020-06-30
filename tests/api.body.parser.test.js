@@ -1,5 +1,7 @@
-import test from 'ava';
-import qs from 'querystring';
+const test = require('ava');
+const qs = require('querystring');
+
+/* global globalBeforeAll:readable, globalAfterAll:readable, api:readable */
 
 test.before(globalBeforeAll({
     moduleOptions: {
@@ -14,7 +16,7 @@ test.before(globalBeforeAll({
 test.after(globalAfterAll());
 
 test('Test json body parser', async (t) => {
-    const {data} = await api.post('/users', {
+    const { data } = await api.post('/users', {
         first_name: 'nuxt',
         last_name: 'neo'
     });
@@ -25,7 +27,7 @@ test('Test json body parser', async (t) => {
 });
 
 test('Test uri encoded body parser', async (t) => {
-    const {data} = await api.post(
+    const { data } = await api.post(
         '/users',
         qs.stringify({
             first_name: 'nuxt',

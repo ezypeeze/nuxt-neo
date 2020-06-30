@@ -1,27 +1,29 @@
-import test from 'ava';
+const test = require('ava');
+
+/* global globalBeforeAll:readable, globalAfterAll:readable, api:readable */
 
 test.before(globalBeforeAll({
     moduleOptions: {
         prefix: '/api/v2',
         serverSuccessResponse: function (req, res) {
-            return res.status(200).json({meta: {ok: true}, payload: res.result});
+            return res.status(200).json({ meta: { ok: true }, payload: res.result });
         },
         serverErrorResponse: function (err, req, res) {
             if (err.httpError) {
-                return res.status(err.statusCode).json({message: err.message});
+                return res.status(err.statusCode).json({ message: err.message });
             }
 
-            return res.status(500).json({message: "[NEW ERROR] Forced error"});
+            return res.status(500).json({ message: "[NEW ERROR] Forced error" });
         },
         serverNotFoundRouteResponse: function (req, res) {
-            return res.status(404).json({message: `The route "${req.url}" was not found.`});
+            return res.status(404).json({ message: `The route "${req.url}" was not found.` });
         }
     }
 }));
 test.after(globalAfterAll());
 
 test('Test success handler', async (t) => {
-    const {data} = await api.get('/products');
+    const { data } = await api.get('/products');
 
     t.true(data.meta.ok);
     t.true(!!data.payload);

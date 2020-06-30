@@ -1,12 +1,28 @@
-const LIB_DIR  = __dirname + '/../../lib';
+const path = require('path');
 
 module.exports = {
     modules: [
-        [LIB_DIR + '/module', {
+        [path.join(__dirname, '../../lib', 'module'), {
             debug: true,
             successHandler: '~/success_handler'
         }]
     ],
+
+    build: {
+        babel: {
+            presets({ isServer }) {
+                return [
+                    [
+                        require.resolve('@nuxt/babel-preset-app'),
+                        {
+                            buildTarget: isServer ? 'server' : 'client',
+                            corejs: { version: 3 }
+                        }
+                    ]
+                ]
+            }
+        }
+    },
 
     dev: false,
 

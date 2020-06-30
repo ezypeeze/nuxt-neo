@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/ezypeeze/nuxt-neo/compare/v4.0.0...v4.1.0) (2020-06-30)
+
+### Features
+
+
+### Bug Fixes
+
+* **issue #10:** Promise.catch() in plugins.api.template.js ([2b7f053](https://github.com/ezypeeze/nuxt-neo/commit/2b7f053bc4c7f6935abb3298f2be69007e3c1a46)), closes [#10](https://github.com/ezypeeze/nuxt-neo/issues/10)
+* fix middleware handler not being sequencially ran
+
+### Refactor
+
+* add action middleware into Controller.ROUTES[middleware].middleware (deprecated from old way Controller.MIDDLEWARE) - controller middleware remains the same
+
+### Other
+
+* upgrade dependencies for latest and stable available
+
 ## [4.0.0](https://github.com/ezypeeze/nuxt-neo/compare/v3.0.2...v4.0.0) (2019-09-09)
 
 

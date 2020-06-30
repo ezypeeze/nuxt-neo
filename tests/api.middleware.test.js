@@ -1,4 +1,6 @@
-import test from 'ava';
+const test = require('ava');
+
+/* global globalBeforeAll:readable, globalAfterAll:readable, api:readable */
 
 test.before(globalBeforeAll({
     moduleOptions: {
@@ -36,9 +38,13 @@ test('Test middleware for a specific action: allAction', async (t) => {
     const deleteProduct = await api.delete('/products/123123');
 
     t.true(getProducts.data.action_middleware);
+    t.true(getProducts.data.action_middleware_2);
     t.false(!!getProduct.data.action_middleware);
+    t.false(!!getProduct.data.action_middleware_2);
     t.false(!!postProduct.data.action_middleware);
+    t.false(!!postProduct.data.action_middleware_2);
     t.false(!!putProduct.data.action_middleware);
+    t.false(!!putProduct.data.action_middleware_2);
     t.false(!!deleteProduct.data.action_middleware);
+    t.false(!!deleteProduct.data.action_middleware_2);
 });
-

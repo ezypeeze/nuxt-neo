@@ -1,21 +1,20 @@
 class TestController {
-
     constructor(request) {
         this.request = request;
     }
 
-    getAction({params, query}) {
+    getAction({ params, query }) {
         return {
             ok: true,
             path: this.request.originalUrl,
             controller_middleware: this.request.locals && this.request.locals.controller_middleware,
             action_middleware: this.request.locals && this.request.locals.action_middleware,
             params,
-            query,
-        }
+            query
+        };
     }
 
-    allAction({params, query}) {
+    allAction({ params, query }) {
         if (query.force_error) {
             throw new Error('Forced error');
         }
@@ -25,12 +24,13 @@ class TestController {
             path: this.request.originalUrl,
             controller_middleware: this.request.locals && this.request.locals.controller_middleware,
             action_middleware: this.request.locals && this.request.locals.action_middleware,
+            action_middleware_2: this.request.locals && this.request.locals.action_middleware_2,
             params,
-            query,
-        }
+            query
+        };
     }
 
-    createAction({params, body, query}) {
+    createAction({ params, body, query }) {
         if (query.exception && global[query.exception]) {
             throw new global[query.exception](query.message);
         }
@@ -41,33 +41,32 @@ class TestController {
             controller_middleware: this.request.locals && this.request.locals.controller_middleware,
             action_middleware: this.request.locals && this.request.locals.action_middleware,
             params,
-            body,
-        }
+            body
+        };
     }
 
-    updateAction({params, body}) {
+    updateAction({ params, body }) {
         return {
             ok: true,
             path: this.request.originalUrl,
             controller_middleware: this.request.locals && this.request.locals.controller_middleware,
             action_middleware: this.request.locals && this.request.locals.action_middleware,
             params,
-            body,
-        }
+            body
+        };
     }
 
-    removeAction({params, body}) {
+    removeAction({ params, body }) {
         return {
             ok: true,
             path: this.request.originalUrl,
             controller_middleware: this.request.locals && this.request.locals.controller_middleware,
             action_middleware: this.request.locals && this.request.locals.action_middleware,
             params,
-            body,
-        }
+            body
+        };
     }
-
-}
+};
 
 TestController.ROUTES = {
     getAction: {
@@ -76,7 +75,17 @@ TestController.ROUTES = {
     },
     allAction: {
         path: '/',
-        verb: 'GET'
+        verb: 'GET',
+        middleware: [
+            function (req)  {
+                if (!req.locals) req.locals = {};
+
+                req.locals.action_middleware = true;
+            },
+            function (req)  {
+                req.locals.action_middleware_2 = true;
+            }
+        ]
     },
     createAction: {
         path: '/',
@@ -97,12 +106,7 @@ TestController.MIDDLEWARE = [
         if (!req.locals) req.locals = {};
 
         req.locals.controller_middleware = true;
-    },
-    ['allAction', function (req)  {
-        if (!req.locals) req.locals = {};
-
-        req.locals.action_middleware = true;
-    }]
+    }
 ];
 
 module.exports = TestController;

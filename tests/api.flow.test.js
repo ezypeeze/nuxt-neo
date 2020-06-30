@@ -1,4 +1,6 @@
-import test from 'ava';
+const test = require('ava');
+
+/* global globalBeforeAll:readable, globalAfterAll:readable, api:readable, nuxt:readable */
 
 test.before(globalBeforeAll({
     moduleOptions: {
@@ -9,7 +11,7 @@ test.before(globalBeforeAll({
 test.after(globalAfterAll());
 
 test('Test first level api (GET /api/v2/users)', async (t) => {
-    const {data} = await api.get('/users');
+    const { data } = await api.get('/users');
     t.true(data.ok);
 });
 
@@ -22,7 +24,7 @@ test('Test second level api (GET /api/v2/foo) - should give 404', async (t) => {
 });
 
 test('Test third level api (GET /api/v2/users/categories/types)', async (t) => {
-    const {data} = await api.get('/users/categories/types');
+    const { data } = await api.get('/users/categories/types');
     t.true(data.ok);
 });
 

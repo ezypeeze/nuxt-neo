@@ -3,8 +3,10 @@ process.env.PORT     = process.env.PORT || 3000;
 process.env.HOST     = process.env.HOST || 'localhost';
 process.env.NODE_ENV = 'test';
 
+/* global nuxt:readable */
+
 const _ = require("lodash/fp/object");
-const {Nuxt, Builder} = require("nuxt");
+const { Nuxt, Builder } = require("nuxt");
 const axios = require("axios");
 const TestController = require("../fixtures/test_controller");
 
@@ -12,7 +14,7 @@ const TestController = require("../fixtures/test_controller");
 global.TestController = TestController;
 
 // Globalize before all function
-global.globalBeforeAll = function ({moduleOptions, nuxtOptions} = {}) {
+global.globalBeforeAll = function ({ moduleOptions, nuxtOptions } = {}) {
     return function () {
         let options = require('../fixtures/nuxt.config');
         if (nuxtOptions) {
@@ -21,7 +23,7 @@ global.globalBeforeAll = function ({moduleOptions, nuxtOptions} = {}) {
         if (moduleOptions) {
             const defaultModuleOptions = options.modules[0];
             defaultModuleOptions[1] = _.merge(defaultModuleOptions[1], moduleOptions);
-            options.modules = [ defaultModuleOptions ];
+            options.modules = [defaultModuleOptions];
         }
 
         // Create nuxt instance
@@ -39,6 +41,11 @@ global.globalBeforeAll = function ({moduleOptions, nuxtOptions} = {}) {
                 global.api = api;
 
                 nuxt.listen(process.env.PORT, process.env.HOST);
+            })
+            .catch(function (err) {
+                console.error(err);
+
+                throw err;
             });
     }
 };
