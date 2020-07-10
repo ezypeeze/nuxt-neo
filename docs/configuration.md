@@ -22,6 +22,9 @@ The default options are:
     
     // If controller action return is null/empty, return 204 No Content
     noContentStatusOnEmpty: true,
+
+    // Allows you to extend express router before going to request middleware
+    extendRouter: null,
     
     // Middleware handlers for all your api.
     middleware: [],
