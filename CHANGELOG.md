@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/ezypeeze/nuxt-neo/compare/v4.1.0...v4.2.0) (2020-07-10)
+
+
+### Features
+
+* **extendRouter:** add config to allow to extend router, since middleware doesn't has access to res/next object ([e2e6cba](https://github.com/ezypeeze/nuxt-neo/commit/e2e6cba3ad9afbf755abeffb4dce0b8f08f4f207))
+
 ## [4.1.0](https://github.com/ezypeeze/nuxt-neo/compare/v4.0.0...v4.1.0) (2020-06-30)
 
 ### Features
