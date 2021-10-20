@@ -28,6 +28,7 @@
     },
     "main": "lib/module.js",
     "scripts": {
+        "dev": "HOST=localhost PORT=3000 nuxt dev -c ./tests/fixtures/nuxt.config.js",
         "docs:dev": "vuepress dev docs",
         "docs:build": "vuepress build docs",
         "test": "ava",
@@ -90,6 +91,7 @@
         "failWithoutAssertions": false,
         "verbose": true,
         "require": [
+            "esm",
             "./tests/setup/global.js"
         ],
         "files": [

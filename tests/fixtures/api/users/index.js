@@ -1,12 +1,11 @@
 const users = [];
 
-class UserController {
-
+export default class UserController {
     constructor(request) {
         this.request = request;
     }
 
-    async allAction({params, query}) {
+    async allAction({ params, query }) {
         return {
             ok: true,
             path: this.request.originalUrl,
@@ -16,7 +15,7 @@ class UserController {
         }
     }
 
-    async getAction({params, query}) {
+    async getAction({ params, query }) {
         return {
             ok: true,
             path: this.request.originalUrl,
@@ -26,8 +25,8 @@ class UserController {
         }
     }
 
-    createAction({params, body}) {
-        users.push(Object.assign({}, body, {id: users.length + 1}));
+    createAction({ params, body }) {
+        users.push(Object.assign({}, body, { id: users.length + 1 }));
 
         return {
             ok: true,
@@ -38,24 +37,23 @@ class UserController {
         }
     }
 
-    updateAction({params, body}) {
+    updateAction({ params, body }) {
         return {
             ok: true,
             path: this.request.originalUrl,
             params,
-            body,
+            body
         }
     }
 
-    removeAction({params, body}) {
+    removeAction({ params, body }) {
         return {
             ok: true,
             path: this.request.originalUrl,
             params,
-            body,
+            body
         }
     }
-
 }
 
 UserController.ROUTES = {
@@ -82,5 +80,3 @@ UserController.ROUTES = {
 };
 
 UserController.MIDDLEWARE = [];
-
-module.exports = UserController;

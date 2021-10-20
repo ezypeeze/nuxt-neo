@@ -1,4 +1,4 @@
-class TestController {
+export default class TestController {
     constructor(request) {
         this.request = request;
     }
@@ -108,5 +108,3 @@ TestController.MIDDLEWARE = [
         req.locals.controller_middleware = true;
     }
 ];
-
-module.exports = TestController;

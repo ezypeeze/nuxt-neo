@@ -1,5 +1,4 @@
-const test = require('ava');
-const qs = require('querystring');
+import test from 'ava';
 
 /* global globalBeforeAll:readable, globalAfterAll:readable, api:readable */
 
