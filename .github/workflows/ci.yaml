@@ -1,0 +1,35 @@
+---
+name: CI
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+    name: Use Node.js ${{ matrix.node-version }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: yarn install
+        run: yarn
+      - name: Linting
+        run: yarn lint
+      - name: Unittesting
+        run: yarn test
+      - name: Coverage
+        if: ${{ matrix.node-version == '14.x' }}
+        run: yarn nyc:ava && yarn nyc report --reporter=lcov > coverage.lcov && yarn codecov -t ${{ secrets.CODECOV_TOKEN }}
