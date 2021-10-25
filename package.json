@@ -87,6 +87,7 @@
     "ava": {
         "cache": true,
         "concurrency": 1,
+        "timeout": "30s",
         "failFast": true,
         "failWithoutAssertions": false,
         "verbose": true,
