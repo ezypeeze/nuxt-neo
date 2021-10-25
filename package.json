@@ -1,6 +1,6 @@
 {
     "name": "nuxt-neo",
-    "version": "4.2.0",
+    "version": "4.2.1",
     "description": "A nuxt.js module that implements a universal api layer, same-way compatible between server and client side.",
     "keywords": [
         "nuxt",

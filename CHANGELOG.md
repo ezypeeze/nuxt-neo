@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.1](https://github.com/ezypeeze/nuxt-neo/compare/v4.2.0...v4.2.1) (2021-10-25)
+
+
+### Bug Fixes
+
+* remove unused "config" dependency ([#13](https://github.com/ezypeeze/nuxt-neo/issues/13)) ([7f7431a](https://github.com/ezypeeze/nuxt-neo/commit/7f7431a98467c70cfcd495dae65fbbe80de43f11))
+
 ## [4.2.0](https://github.com/ezypeeze/nuxt-neo/compare/v4.1.0...v4.2.0) (2020-07-10)
 
 
