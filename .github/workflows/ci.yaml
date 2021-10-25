@@ -31,4 +31,5 @@ jobs:
       - name: Unittesting
         run: yarn test
       - name: Coverage
+        if: ${{ matrix.node-version == '14.x' }}
         run: yarn nyc:ava && yarn nyc report --reporter=lcov > coverage.lcov && yarn codecov -t ${CODECOV_TOKEN}
