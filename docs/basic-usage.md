@@ -15,9 +15,25 @@ Create a new folder on your project, lets assume ```~/api```.
 ```
 Then lets create a new file, for example, ```~/api/todos.js``` and export a new class:
 ```js
-const Todos = require('<your_todos_data_provider>');
+import Todos from '<your_todos_data_provider>'
 
 class TodosController {
+    // Required: This will be the action to route mapper.
+    static ROUTES = {
+        allAction: {
+            path: '/', // your route will be /api/todos'/'
+            verb: 'GET'
+        },
+        getAction: {
+            path: '/:id', // your route will be /api/todos/:id - route paths are express-like
+            verb: 'GET'
+        },
+        createAction: {
+            path: '/', // your route will be /api/todos'/'
+            verb: 'POST'
+        },
+    };
+
     // Everytime this class instantiates, request object will be injected into the construtor params.
     constructor(request) {
         this.request = request;
@@ -46,23 +62,7 @@ class TodosController {
     }
 }
 
-// Required: This will be the action to route mapper.
-TodosController.ROUTES = {
-    allAction: {
-        path: '/', // your route will be /api/todos'/'
-        verb: 'GET'
-    },
-    getAction: {
-        path: '/:id', // your route will be /api/todos/:id - route paths are express-like
-        verb: 'GET'
-    },
-    createAction: {
-        path: '/', // your route will be /api/todos'/'
-        verb: 'POST'
-    },
-};
-
-module.exports = TodosController;
+export default TodosController;
 ```
 
 Now if you call your server at: ```GET http://<your_local_host>:<your_local_port>/api/todos```,

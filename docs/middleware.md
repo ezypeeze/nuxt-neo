@@ -29,42 +29,40 @@ It's possible to add middleware into 3 parts of your API:
 // file: ~/api/todos.js
 
 class TodoController {
-    // ...
+    static ROUTES = {
+        //...
+    };
+
+    static MIDDLEWARE = [
+        function (req) {
+            console.log('first');
+        }
+    ]
 }
-
-TodoController.ROUTES = {
-    //...
-};
-
-TodoController.MIDDLEWARE = [
-    function (req) {
-        console.log('first');
-    }
-]
 ```
+
 - Middleware for a specific action in a controller.
+
 ```js
 //file: ~/api/todos.js
 
 class TodoController {
-    // ...
+    static ROUTES = {
+        allAction: {
+            verb: "GET",
+            path: "/",
+            middleware: [
+                function (req) {
+                    console.log('second');
+                },
+                function (req) {
+                    // supports promises
+                    return Promise.resolve().then(() => console.log('third'));
+                }
+            ]
+        }
+    };
 }
-
-TodoController.ROUTES = {
-    allAction: {
-        verb: "GET",
-        path: "/",
-        middleware: [
-            function (req) {
-                console.log('second');
-            },
-            function (req) {
-                // supports promises
-                return Promise.resolve().then(() => console.log('third'));
-            }
-        ]
-    }
-};
 ```
 
 *NOTE:* The middleware is mostly used to block access and enrich request object with data.

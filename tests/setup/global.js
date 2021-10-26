@@ -1,22 +1,19 @@
 // Default Environment Variables
+/* global nuxt:readable */
+
+import _ from "lodash/fp/object";
+import { Nuxt, Builder } from "nuxt";
+import axios from "axios";
+import defaultNuxtConfig from '../fixtures/nuxt.config';
+
 process.env.PORT     = process.env.PORT || 3000;
 process.env.HOST     = process.env.HOST || 'localhost';
 process.env.NODE_ENV = 'test';
 
-/* global nuxt:readable */
-
-const _ = require("lodash/fp/object");
-const { Nuxt, Builder } = require("nuxt");
-const axios = require("axios");
-const TestController = require("../fixtures/test_controller");
-
-// Globalize Test Controller
-global.TestController = TestController;
-
 // Globalize before all function
 global.globalBeforeAll = function ({ moduleOptions, nuxtOptions } = {}) {
     return function () {
-        let options = require('../fixtures/nuxt.config');
+        let options = _.merge(defaultNuxtConfig, { env: { PORT: process.env.PORT, HOST: process.env.HOST } });
         if (nuxtOptions) {
             options = _.merge(options, nuxtOptions);
         }

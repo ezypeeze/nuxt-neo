@@ -1,6 +1,6 @@
-const path = require('path');
+import path from 'path';
 
-module.exports = {
+export default {
     modules: [
         [path.join(__dirname, '../../lib', 'module'), {
             debug: true,
@@ -26,10 +26,5 @@ module.exports = {
 
     dev: false,
 
-    srcDir: __dirname, // fixtures folder, where all the test code will be.
-
-    env: {
-        PORT: process.env.PORT,
-        HOST: process.env.HOST
-    }
+    srcDir: __dirname // fixtures folder, where all the test code will be.
 };
