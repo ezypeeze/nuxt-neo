@@ -1,6 +1,29 @@
 const users = [];
 
 export default class UserController {
+    static ROUTES = {
+        allAction: {
+            path: '/',
+            verb: 'GET'
+        },
+        getAction: {
+            path: '/:id',
+            verb: 'GET'
+        },
+        createAction: {
+            path: '/',
+            verb: 'POST'
+        },
+        updateAction: {
+            path: '/:id',
+            verb: 'PUT'
+        },
+        removeAction: {
+            path: '/:id',
+            verb: 'DELETE'
+        }
+    };
+
     constructor(request) {
         this.request = request;
     }
@@ -55,28 +78,3 @@ export default class UserController {
         }
     }
 }
-
-UserController.ROUTES = {
-    allAction: {
-        path: '/',
-        verb: 'GET'
-    },
-    getAction: {
-        path: '/:id',
-        verb: 'GET'
-    },
-    createAction: {
-        path: '/',
-        verb: 'POST'
-    },
-    updateAction: {
-        path: '/:id',
-        verb: 'PUT'
-    },
-    removeAction: {
-        path: '/:id',
-        verb: 'DELETE'
-    }
-};
-
-UserController.MIDDLEWARE = [];

@@ -1,4 +1,45 @@
 export default class TestController {
+    static ROUTES = {
+        getAction: {
+            path: '/:id',
+            verb: 'GET'
+        },
+        allAction: {
+            path: '/',
+            verb: 'GET',
+            middleware: [
+                function (req)  {
+                    if (!req.locals) req.locals = {};
+
+                    req.locals.action_middleware = true;
+                },
+                function (req)  {
+                    req.locals.action_middleware_2 = true;
+                }
+            ]
+        },
+        createAction: {
+            path: '/',
+            verb: 'POST'
+        },
+        updateAction: {
+            path: '/:id',
+            verb: 'PUT'
+        },
+        removeAction: {
+            path: '/:id',
+            verb: 'DELETE'
+        }
+    };
+
+    static MIDDLEWARE = [
+        function (req) {
+            if (!req.locals) req.locals = {};
+
+            req.locals.controller_middleware = true;
+        }
+    ];
+
     constructor(request) {
         this.request = request;
     }
@@ -67,44 +108,3 @@ export default class TestController {
         };
     }
 };
-
-TestController.ROUTES = {
-    getAction: {
-        path: '/:id',
-        verb: 'GET'
-    },
-    allAction: {
-        path: '/',
-        verb: 'GET',
-        middleware: [
-            function (req)  {
-                if (!req.locals) req.locals = {};
-
-                req.locals.action_middleware = true;
-            },
-            function (req)  {
-                req.locals.action_middleware_2 = true;
-            }
-        ]
-    },
-    createAction: {
-        path: '/',
-        verb: 'POST'
-    },
-    updateAction: {
-        path: '/:id',
-        verb: 'PUT'
-    },
-    removeAction: {
-        path: '/:id',
-        verb: 'DELETE'
-    }
-};
-
-TestController.MIDDLEWARE = [
-    function (req) {
-        if (!req.locals) req.locals = {};
-
-        req.locals.controller_middleware = true;
-    }
-];
