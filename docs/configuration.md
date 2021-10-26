@@ -38,7 +38,7 @@ The default options are:
     // Universal error handler (will run both on client side and server side $api calls) -- optional
     errorHandler: null,
     
-    // Success Response handler - will decide how the data will be send (as json, xml, etc..)
+    // Success Response handler - will decide how the data will be sent (as json, xml, etc..)
     serverSuccessResponse: function (req, res, options) {
         if (!res.result && options.noContentStatusOnEmpty) {
             return res.status(204).send();
@@ -47,7 +47,7 @@ The default options are:
         return res.status(200).json(res.result);
     },
     
-    // Error Response handler - will decide how the error will be send to the client
+    // Error Response handler - will decide how the error will be sent to the client
     serverErrorResponse: function (err, req, res, options) {
         if (err && err.statusCode) {
             return res.status(err.statusCode).json({
@@ -71,7 +71,7 @@ The default options are:
     
     // In case the route wasn't found,  will decide what to send to the client
     serverNotFoundRouteResponse: function (req, res) {
-            return res.status(404).json({message: 'Route not found'});
+        return res.status(404).json({message: 'Route not found'});
     }
 }
 ```
