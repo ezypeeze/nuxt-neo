@@ -36,12 +36,15 @@
         "release:patch": "sure && standard-version --no-verify --release-as patch && git push --tags",
         "release:minor": "sure && standard-version --no-verify --release-as minor && git push --tags",
         "release:major": "sure && standard-version --no-verify --release-as major && git push --tags",
-        "nyc:ava": "nyc ava"
+        "coverage": "c8 --reporter=lcov ava"
     },
     "author": "Pedro Pereira <pedromdspereira.93@gmail.com>",
     "contributors": [
         {
             "name": "Pedro Pereira <pedromdspereira.93@gmail.com>"
+        },
+        {
+            "name": "Rafał Chłodnicki <rchl2k@gmail.com>"
         }
     ],
     "license": "MIT",
@@ -61,6 +64,7 @@
         "ava": "^3.9.0",
         "axios": "^0.19.0",
         "babel-eslint": "^10.0.1",
+        "c8": "^7.10.0",
         "codecov": "^3.5.0",
         "core-js": "3",
         "eslint": "^7.3.1",
@@ -76,7 +80,6 @@
         "jsdom": "^16.2.2",
         "lodash": "^4.17.10",
         "nuxt": "^2.13.2",
-        "nyc": "^15.1.0",
         "pre-commit": "^1.2.2",
         "prettier": "^2.0.5",
         "querystring": "^0.2.0",

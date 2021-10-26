@@ -3,5 +3,4 @@ node_modules
 *.log
 .nuxt
 dist
-.nyc_output
 coverage
