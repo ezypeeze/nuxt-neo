@@ -29,8 +29,6 @@
     "main": "lib/module.js",
     "scripts": {
         "dev": "HOST=localhost PORT=3000 nuxt dev -c ./tests/fixtures/nuxt.config.js",
-        "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs",
         "test": "ava",
         "lint": "eslint lib/**/*.js",
         "release:patch": "sure && standard-version --no-verify --release-as patch && git push --tags",
@@ -66,7 +64,7 @@
         "babel-eslint": "^10.1.0",
         "c8": "^7.10.0",
         "codecov": "^3.8.2",
-        "core-js": "3",
+        "core-js": "^3.19.0",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-config-standard": "^16.0.3",
@@ -77,6 +75,7 @@
         "eslint-plugin-promise": "^5.1.1",
         "eslint-plugin-standard": "^4.1.0",
         "eslint-plugin-vue": "^7.20.0",
+        "esm": "^3.2.25",
         "jsdom": "^16.7.0",
         "lodash": "^4.17.21",
         "nuxt": "^2.15.8",
@@ -84,8 +83,7 @@
         "prettier": "^2.4.1",
         "querystring": "^0.2.1",
         "standard-version": "^9.3.2",
-        "sure": "^0.0.3",
-        "vuepress": "^1.8.2"
+        "sure": "^0.0.3"
     },
     "ava": {
         "cache": true,

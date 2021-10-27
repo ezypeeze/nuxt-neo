@@ -1,6 +1,6 @@
 import test from 'ava';
 
-/* global globalBeforeAll:readable, globalAfterAll:readable, api:readable, nuxt:readable */
+/* global globalBeforeAll:readable, globalAfterAll:readable, serverUrl:readable, api:readable, nuxt:readable */
 
 test.before(globalBeforeAll({
     moduleOptions: {
@@ -29,7 +29,7 @@ test('Test third level api (GET /api/v2/users/categories/types)', async (t) => {
 });
 
 test('Test hybrid api data flow server side.', async (t) => {
-    const window           = await nuxt.renderAndGetWindow(URL('/'));
+    const window           = await nuxt.renderAndGetWindow(serverUrl('/'));
     const path             = window.document.querySelector('.index span.path');
     const okay             = window.document.querySelector('.index span.okay');
     const resMiddle        = window.document.querySelector('.index span.response-middleware');
@@ -49,7 +49,7 @@ test('Test hybrid api data flow server side.', async (t) => {
 });
 
 test('Test hybrid api data flow client side', async (t) => {
-    const window     = await nuxt.renderAndGetWindow(URL('/'));
+    const window     = await nuxt.renderAndGetWindow(serverUrl('/'));
     const path       = window.document.querySelector('.index span.path');
     const okay       = window.document.querySelector('.index span.okay');
     const idParam    = window.document.querySelector('.index span.id-param');
