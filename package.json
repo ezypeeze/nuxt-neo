@@ -58,10 +58,8 @@
         "express": "^4.17.1"
     },
     "devDependencies": {
-        "@babel/runtime-corejs3": "^7.15.4",
         "ava": "^3.15.0",
         "axios": "^0.24.0",
-        "babel-eslint": "^10.1.0",
         "c8": "^7.10.0",
         "codecov": "^3.8.2",
         "core-js": "^3.19.0",
