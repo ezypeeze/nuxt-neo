@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "docs:dev": "yarn && vuepress dev content",
+    "docs:build": "yarn && vuepress build content"
+  },
   "dependencies": {
     "vuepress": "^1.8.2"
   }
