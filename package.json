@@ -29,8 +29,8 @@
     "main": "lib/module.js",
     "scripts": {
         "dev": "HOST=localhost PORT=3000 nuxt dev -c ./tests/fixtures/nuxt.config.js",
-        "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs",
+        "docs:dev": "cd docs && yarn && vuepress dev content",
+        "docs:build": "cd docs && yarn && vuepress build content",
         "test": "ava",
         "lint": "eslint lib/**/*.js",
         "release:patch": "sure && standard-version --no-verify --release-as patch && git push --tags",
@@ -77,6 +77,7 @@
         "eslint-plugin-promise": "^5.1.1",
         "eslint-plugin-standard": "^4.1.0",
         "eslint-plugin-vue": "^7.20.0",
+        "esm": "^3.2.25",
         "jsdom": "^16.7.0",
         "lodash": "^4.17.21",
         "nuxt": "^2.15.8",

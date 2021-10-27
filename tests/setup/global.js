@@ -1,5 +1,5 @@
 // Default Environment Variables
-/* global nuxt:readable */
+/* global nuxt:readable, serverUrl:readable */
 
 import _ from "lodash/fp/object";
 import { Nuxt, Builder } from "nuxt";
@@ -28,7 +28,7 @@ global.globalBeforeAll = function ({ moduleOptions, nuxtOptions } = {}) {
 
         // Globalize API requests
         const api = axios.create({
-            baseURL: URL(options.modules[0][1].prefix || '/api')
+            baseURL: serverUrl(options.modules[0][1].prefix || '/api')
         });
 
         // Build and create web server
@@ -55,4 +55,4 @@ global.globalAfterAll = function () {
 };
 
 // Globalize Test server URL generator
-global.URL = path => `http://${process.env.HOST}:${process.env.PORT}${path || ''}`;
+global.serverUrl = path => `http://${process.env.HOST}:${process.env.PORT}${path || ''}`;

@@ -1,0 +1,9 @@
+{
+  "name": "nuxt-neo-docs",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "vuepress": "^1.8.2"
+  }
+}

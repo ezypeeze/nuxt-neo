@@ -10,7 +10,7 @@ GIT_EMAIL=$(git config --get user.email)
 yarn docs:build
 
 # navigate into the build output directory
-cd docs/.vuepress/dist
+cd docs/content/.vuepress/dist || exit
 
 git init
 git config user.name "$GIT_NAME"
