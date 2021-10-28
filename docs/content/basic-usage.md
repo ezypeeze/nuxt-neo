@@ -12,6 +12,17 @@ Create a new folder on your project, lets assume ```~/api```.
     }]
   ]
 }
+
+// or alternatively:
+
+{
+  modules: [
+    'nuxt-neo'
+  ],
+  nuxtNeo: {
+    directory: __dirname + '/api'
+  }
+}
 ```
 Then lets create a new file, for example, ```~/api/todos.js``` and export a new class:
 ```js
