@@ -19,7 +19,7 @@ export default {
                             corejs: { version: 3 }
                         }
                     ]
-                ]
+                ];
             }
         }
     },

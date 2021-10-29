@@ -24,6 +24,6 @@ I created this module so you can create your API inside nuxt.js easily, based on
 
 ### Release Notes ###
 Check all release notes [here](https://github.com/ezypeeze/nuxt-neo/blob/master/CHANGELOG.md).
- 
+
 ### License ###
 MIT

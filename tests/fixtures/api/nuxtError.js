@@ -7,6 +7,6 @@ export default class NuxtErrorController {
     };
 
     error() {
-        throw new Error("nuxtError");
+        throw new Error('nuxtError');
     }
 }

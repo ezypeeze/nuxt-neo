@@ -41,11 +41,11 @@ test('Test hybrid api data flow server side.', async (t) => {
     t.is(path.textContent, '/');
 
     // Test http errors
-    t.true("BadRequestError" in global);
-    t.true("UnauthorizedError" in global);
-    t.true("ForbiddenError" in global);
-    t.true("NotFoundError" in global);
-    t.true("InternalServerError" in global);
+    t.true('BadRequestError' in global);
+    t.true('UnauthorizedError' in global);
+    t.true('ForbiddenError' in global);
+    t.true('NotFoundError' in global);
+    t.true('InternalServerError' in global);
 });
 
 test('Test hybrid api data flow client side', async (t) => {
@@ -78,9 +78,9 @@ test('Test hybrid api data flow client side', async (t) => {
     t.is(firstUser.textContent, 'first');
 
     // Test http errors
-    t.true("BadRequestError" in window);
-    t.true("UnauthorizedError" in window);
-    t.true("ForbiddenError" in window);
-    t.true("NotFoundError" in window);
-    t.true("InternalServerError" in window);
+    t.true('BadRequestError' in window);
+    t.true('UnauthorizedError' in window);
+    t.true('ForbiddenError' in window);
+    t.true('NotFoundError' in window);
+    t.true('InternalServerError' in window);
 });

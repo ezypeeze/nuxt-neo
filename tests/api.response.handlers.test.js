@@ -13,7 +13,7 @@ test.before(globalBeforeAll({
                 return res.status(err.statusCode).json({ message: err.message });
             }
 
-            return res.status(500).json({ message: "[NEW ERROR] Forced error" });
+            return res.status(500).json({ message: '[NEW ERROR] Forced error' });
         },
         serverNotFoundRouteResponse: function (req, res) {
             return res.status(404).json({ message: `The route "${req.url}" was not found.` });
@@ -70,6 +70,6 @@ test('Test not found route response', async (t) => {
         await api.get('/products/categories/types');
     } catch (err) {
         t.is(err.response.status, 404);
-        t.is(err.response.data.message, 'The route "/products/categories/types" was not found.')
+        t.is(err.response.data.message, 'The route "/products/categories/types" was not found.');
     }
 });

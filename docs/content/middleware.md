@@ -70,7 +70,7 @@ class TodoController {
  throwing errors (e.g : ```throw new InternalServer("I dont want to continue")```);
 
 ## Response Middleware ##
-You will mostly get to the point to make your api payload data more structured and abstracted. 
+You will mostly get to the point to make your api payload data more structured and abstracted.
 (for example: inject payload data into somekind of collection).
 
 To do this, define the response middleware file into module config:
@@ -92,16 +92,16 @@ Then create that file:
 // ~/success_handler.js
 
 class Collection() {
-    
+
     constructor(payload, meta) {
         this.payload = payload;
         this.meta    = meta;
     }
-    
+
     getTotal() {
         return this.meta.total;
     }
-    
+
     getPayload() {
         return this.payload;
     }
@@ -129,7 +129,7 @@ Then on your Vue Page:
         <div class="current-todo" v-if="currentTodo">
             Current todo is: {{currentTodo.getPayload().title}}
         </div>
-    
+
         <div v-for="todo in todos.getPayload()">
             {{todo.title}}
             <button @click="handleClick(todo.id)">Click for details</button>

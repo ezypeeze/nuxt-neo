@@ -15,10 +15,10 @@
         "vue"
     ],
     "rules": {
-        // Allow doublequotes
-        "quotes": "off",
-        // Allow semicolon
-        "semi": "off",
+        // Require single quotes unless quoting is required
+        "quotes": ["error", "single", { "avoidEscape": true }],
+        // Require semicolon
+        "semi": ["error", "always"],
         // disable space after func parentsis
         "space-before-function-paren": "off",
         // Allow paren-less arrow functions
@@ -29,16 +29,86 @@
         "no-console": 1,
         // Allow multi spaces to keep '=' on same column
         "no-multi-spaces": "off",
+        "no-trailing-spaces": "error",
         // No need for empty new line at the end of the file
         "eol-last": "off",
-		// Force tabs, 4 size
-		"indent": ["error", 4],
-		// Disable no-tabs
-		"no-tabs": "off",
-		// allow mixed operators '&&' and '||'
-		"no-mixed-operators": "off",
+        // Force tabs, 4 size
+        "indent": ["error", 4],
+        // Disable no-tabs
+        "no-tabs": "off",
+        // allow mixed operators '&&' and '||'
+        "no-mixed-operators": "off",
         // node deprecated api
         "node/no-deprecated-api":  "off"
-
-    }
+    },
+    "overrides": [
+        {
+            "files": ["*.ts"],
+            "extends": "plugin:@typescript-eslint/recommended",
+            "parserOptions": {
+                "project": "./tsconfig.json"
+            },
+            "rules": {
+                "indent": "off",
+                "quotes": "off",
+                "semi": "off",
+                "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+                "@typescript-eslint/indent": [
+                    "error", 4, {
+                        "SwitchCase": 1,
+                        "FunctionDeclaration": { "parameters": "first" },
+                        "FunctionExpression": { "parameters": "first" },
+                        "CallExpression": { "arguments": "first" }
+                    }
+                ],
+                "@typescript-eslint/member-delimiter-style": "error",
+                "@typescript-eslint/no-empty-interface": "off",
+                "@typescript-eslint/no-explicit-any": "off",
+                "@typescript-eslint/no-extra-parens": "error",
+                "@typescript-eslint/no-require-imports": "error",
+                "@typescript-eslint/no-unnecessary-qualifier": "error",
+                "@typescript-eslint/no-useless-constructor": "error",
+                "@typescript-eslint/restrict-plus-operands": "error",
+                "@typescript-eslint/semi": ["error", "always"]
+            }
+        },
+        {
+            "files": ["*.vue"],
+            "extends": "plugin:vue/recommended",
+            "rules": {
+                "vue/arrow-spacing": "error",
+                "vue/block-spacing": "error",
+                "vue/brace-style": "error",
+                "vue/comma-dangle": ["error", "always-multiline"],
+                "vue/component-name-in-template-casing": ["error", "kebab-case", {
+                    "registeredComponentsOnly": false
+                }],
+                "vue/eqeqeq": "error",
+                "vue/html-closing-bracket-newline": "off",
+                "vue/html-indent": ["error", 4],
+                "vue/html-self-closing": [
+                    "error", {
+                        "html": { "normal": "never" }
+                    }
+                ],
+                "vue/key-spacing": "error",
+                "vue/keyword-spacing": "error",
+                "vue/max-attributes-per-line": ["error", {
+                    "singleline": 100,
+                    "multiline": 100
+                }],
+                "vue/multiline-html-element-content-newline": ["error", {
+                    "ignores": ["pre", "textarea", "a", "nuxt-link"]
+                }],
+                "vue/no-deprecated-scope-attribute": "error",
+                "vue/no-v-html": "off",
+                "vue/object-curly-spacing": ["error", "always"],
+                "vue/script-indent": ["error", 4, { "switchCase": 1 }],
+                "vue/singleline-html-element-content-newline": "off",
+                "vue/space-infix-ops": "error",
+                "vue/valid-v-slot": "error",
+                "vue/v-slot-style": "error"
+            }
+        }
+    ]
 }

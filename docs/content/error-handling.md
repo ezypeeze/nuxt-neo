@@ -8,9 +8,9 @@ Imagine that you have some kind of validation you want to perform before creatin
             throw new BadRequestError('Invalid body payload', [
                 !body.title && 'Title is required',
                 !body.content && 'Content is required'
-            ].filter(Boolean));    
+            ].filter(Boolean));
         }
-        
+
         return await Todos.create(body.title, body.content);
     }
 ```
@@ -23,14 +23,14 @@ Or in case you fetch a todo by id and it doesn't exist:
         if (!todo) {
             throw new NotFoundError(`Todo "${params.id}" doesn't exist.`)
         }
-                
+
         return todo;
     }
 ```
 
 - By default, ```nuxt-neo``` globalizes what we call ```http errors/exceptions```. Those exceptions,
 are a kind of error that is a request flow error (route not found, bad request payload, reserved/private areas).
-If an ```http errors/exceptions``` is throwed, a special kind of response will be sent 
+If an ```http errors/exceptions``` is throwed, a special kind of response will be sent
 (e.g bad request will send a list of errors, not found will represent that a given id todo doesn't exist, ...).
 
 **NOTE**: You are not required to use this, you can simply throw a normal error (```Error native class```), its simply a
