@@ -15,7 +15,7 @@
         "vue"
     ],
     "rules": {
-        // Require single quotes unless quoting is required
+        // Require single quotes unless escaping is required
         "quotes": ["error", "single", { "avoidEscape": true }],
         // Require semicolon
         "semi": ["error", "always"],
