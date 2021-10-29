@@ -20,6 +20,17 @@ Then add the module to `nuxt.config.js`:
     }]
   ]
 }
+
+// or alternatively:
+
+{
+  modules: [
+    'nuxt-neo'
+  ],
+  nuxtNeo: {
+    directory: __dirname + '/api'
+  }
+}
 ```
 
 

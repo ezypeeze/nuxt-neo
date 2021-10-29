@@ -28,7 +28,7 @@ global.globalBeforeAll = function ({ moduleOptions, nuxtOptions } = {}) {
 
         // Globalize API requests
         const api = axios.create({
-            baseURL: serverUrl(options.modules[0][1].prefix || '/api')
+            baseURL: serverUrl(options.modules[0][1].prefix || (options.nuxtNeo && options.nuxtNeo.prefix) || '/api')
         });
 
         // Build and create web server
