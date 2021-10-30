@@ -23,15 +23,22 @@
         "space-before-function-paren": "off",
         // Allow paren-less arrow functions
         "arrow-parens": "off",
+        // Require strict comparison
+        "eqeqeq": "error",
         // Allow async-await
         "generator-star-spacing": "off",
         // Do not allow console.logs etc...
         "no-console": 1,
-        // Allow multi spaces to keep '=' on same column
-        "no-multi-spaces": "off",
+        // Disallow multiple spaces unless in the EOL comments
+        "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
+        // At most one empty line
+        "no-multiple-empty-lines": ["error", { "max": 1 }],
+        // Disallow trailing spaces
         "no-trailing-spaces": "error",
-        // No need for empty new line at the end of the file
-        "eol-last": "off",
+        // No vars
+        "no-var": "error",
+        // Require empty new line at the end of the file
+        "eol-last": "error",
         // Force tabs, 4 size
         "indent": ["error", 4],
         // Disable no-tabs
