@@ -65,6 +65,15 @@ test('Test forbidden context response due invalid input data', async (t) => {
     }
 });
 
+test('Test internal server error response', async (t) => {
+    try {
+        await api.post('/products?exception=InternalServerError');
+    } catch (err) {
+        t.is(err.response.status, 500);
+        t.is(err.response.data.message, 'Internal Server Error');
+    }
+});
+
 test('Test not found route response', async (t) => {
     try {
         await api.get('/products/categories/types');
