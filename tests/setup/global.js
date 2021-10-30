@@ -1,9 +1,9 @@
 // Default Environment Variables
 /* global nuxt:readable, serverUrl:readable */
 
-import _ from "lodash/fp/object";
-import { Nuxt, Builder } from "nuxt";
-import axios from "axios";
+import _ from 'lodash/fp/object';
+import { Nuxt, Builder } from 'nuxt';
+import axios from 'axios';
 import defaultNuxtConfig from '../fixtures/nuxt.config';
 
 process.env.PORT     = process.env.PORT || 3000;
@@ -44,7 +44,7 @@ global.globalBeforeAll = function ({ moduleOptions, nuxtOptions } = {}) {
 
                 throw err;
             });
-    }
+    };
 };
 
 // Globalize after all function

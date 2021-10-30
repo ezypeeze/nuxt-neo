@@ -35,7 +35,7 @@ export default class UserController {
             params,
             query,
             users
-        }
+        };
     }
 
     async getAction({ params, query }) {
@@ -45,7 +45,7 @@ export default class UserController {
             params,
             query,
             user: users.filter(user => user.id === params.id)
-        }
+        };
     }
 
     createAction({ params, body }) {
@@ -57,7 +57,7 @@ export default class UserController {
             params,
             body,
             user: users[users.length - 1]
-        }
+        };
     }
 
     updateAction({ params, body }) {
@@ -66,7 +66,7 @@ export default class UserController {
             path: this.request.originalUrl,
             params,
             body
-        }
+        };
     }
 
     removeAction({ params, body }) {
@@ -75,6 +75,6 @@ export default class UserController {
             path: this.request.originalUrl,
             params,
             body
-        }
+        };
     }
 }
