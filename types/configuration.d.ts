@@ -4,13 +4,10 @@ import { OptionsJson, OptionsText, OptionsUrlencoded } from 'body-parser';
 
 export type BodyParserType = 'json' | 'raw' | 'text' | 'urlencoded';
 export type Middleware = (req: Request) => Promise<void> | void;
+export type NeoRequestHandler = (req: Request, res: SuccessResponse, next: NextFunction) => void;
 
 interface SuccessResponse extends Response {
     result?: any;
-}
-
-export interface NeoRequestHandler {
-    (req: Request, res: SuccessResponse, next: NextFunction): void;
 }
 
 export interface ModuleConfiguration {
