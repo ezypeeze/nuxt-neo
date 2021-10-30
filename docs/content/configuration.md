@@ -70,7 +70,7 @@ The default options are:
     },
 
     // In case the route wasn't found,  will decide what to send to the client
-    serverNotFoundRouteResponse: function (req, res) {
+    serverNotFoundRouteResponse: function (req, res, options) {
         return res.status(404).json({message: 'Route not found'});
     }
 }

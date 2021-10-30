@@ -27,10 +27,15 @@
         "url": "https://github.com/ezypeeze/nuxt-neo/issues"
     },
     "main": "lib/module.js",
+    "types": "types/index.d.ts",
+    "files": [
+        "lib",
+        "types"
+    ],
     "scripts": {
         "dev": "HOST=localhost PORT=3000 nuxt dev -c ./tests/fixtures/nuxt.config.js",
         "test": "ava",
-        "lint": "eslint lib/**/*.js",
+        "lint": "eslint lib/**/*.js types/**/*.ts",
         "release:patch": "sure && standard-version --no-verify --release-as patch && git push --tags",
         "release:minor": "sure && standard-version --no-verify --release-as minor && git push --tags",
         "release:major": "sure && standard-version --no-verify --release-as major && git push --tags",
@@ -58,6 +63,9 @@
         "express": "^4.17.1"
     },
     "devDependencies": {
+        "@nuxt/types": "^2.15.8",
+        "@typescript-eslint/eslint-plugin": "^5.2.0",
+        "@typescript-eslint/parser": "^5.2.0",
         "ava": "^3.15.0",
         "axios": "^0.24.0",
         "c8": "^7.10.0",
@@ -81,7 +89,8 @@
         "prettier": "^2.4.1",
         "querystring": "^0.2.1",
         "standard-version": "^9.3.2",
-        "sure": "^0.0.3"
+        "sure": "^0.0.3",
+        "typescript": "^4.4.4"
     },
     "ava": {
         "cache": true,
