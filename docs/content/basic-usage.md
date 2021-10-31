@@ -179,7 +179,7 @@ client-side it uses your ```clientSideApiHandler``` to handle the api request.
 
 If your project is written in Typescript or uses JSDoc annotations to enable type-checking, you can extend the `Api` interface to make Typescript aware of the apis that you've created and enable type-safety and improve the UX during development.
 
-For example, for the example apis that we've created before on this page, you would extend the interface like this way:
+For example, for the example apis that we've created before on this page, you would extend the interface this way:
 
 ```ts
 declare module 'nuxt-neo' {
