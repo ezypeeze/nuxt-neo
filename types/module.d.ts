@@ -33,9 +33,8 @@ declare module 'nuxt-neo' {
          */
         bodyParsers?:
             BodyParserType
-            | BodyParserType[]
-            | { adapter: BodyParserType; options: OptionsJson | OptionsText | OptionsUrlencoded }
-            | { adapter: BodyParserType; options: OptionsJson | OptionsText | OptionsUrlencoded }[]
+            | { adapter: BodyParserType; options?: OptionsJson | OptionsText | OptionsUrlencoded }
+            | Array<BodyParserType | { adapter: BodyParserType; options?: OptionsJson | OptionsText | OptionsUrlencoded }>
             | ((options: ResolvedModuleOptions) => RequestHandler | NextHandleFunction);
         /**
          * Globalize http error classes (BadRequestError, NotFoundError, ...)
