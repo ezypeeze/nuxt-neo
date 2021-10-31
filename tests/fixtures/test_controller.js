@@ -8,12 +8,12 @@ export default class TestController {
             path: '/',
             verb: 'GET',
             middleware: [
-                function (req)  {
+                function (req) {
                     if (!req.locals) req.locals = {};
 
                     req.locals.action_middleware = true;
                 },
-                function (req)  {
+                function (req) {
                     req.locals.action_middleware_2 = true;
                 }
             ]

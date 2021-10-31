@@ -1,13 +1,7 @@
 import '@nuxt/types';
 import 'vuex';
-import { Api } from './api';
+import { Api } from 'nuxt-neo';
 import { ModuleConfiguration } from './configuration';
-
-declare module 'vue/types/vue' {
-    interface Vue {
-        readonly $api: Api;
-    }
-}
 
 declare module '@nuxt/types' {
     interface NuxtAppOptions {
@@ -18,12 +12,19 @@ declare module '@nuxt/types' {
         readonly $api: Api;
     }
 
-    interface Configuration {
-        nuxtNeo: ModuleConfiguration;
+    interface NuxtConfig {
+        nuxtNeo?: ModuleConfiguration;
+    }
+}
+
+declare module 'vue/types/vue' {
+    interface Vue {
+        readonly $api: Api;
     }
 }
 
 declare module 'vuex/types/index' {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     interface Store<S> {
         readonly $api: Api;
     }

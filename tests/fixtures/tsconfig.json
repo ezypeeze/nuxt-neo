@@ -13,9 +13,12 @@
         ],
         "noEmit": true,
         "strict": true,
+        "types": [
+            "@nuxt/types",
+        ],
     },
-    "exclude": [
-        "node_modules/**/*",
-        "lib/plugins/api.template.js",
+    "include": [
+        "**/*",
+        "../types/*.d.ts"
     ]
 }
