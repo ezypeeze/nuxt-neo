@@ -29,6 +29,7 @@
                     "singleline": 100,
                     "multiline": 100
                 }],
+                "vue/multi-word-component-names": "off",
                 "vue/multiline-html-element-content-newline": ["error", {
                     "ignores": ["pre", "textarea", "a", "nuxt-link"]
                 }],
