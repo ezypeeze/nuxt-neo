@@ -10,10 +10,6 @@
         "browser": true,
         "node": true
     },
-    "plugins": [
-        "ava",
-        "vue"
-    ],
     "rules": {
         // Require single quotes unless escaping is required
         "quotes": ["error", "single", { "avoidEscape": true }],

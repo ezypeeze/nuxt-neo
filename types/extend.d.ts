@@ -1,7 +1,6 @@
 import '@nuxt/types';
 import 'vuex';
-import { Api } from 'nuxt-neo';
-import { ModuleConfiguration } from './configuration';
+import { Api, ModuleConfiguration } from 'nuxt-neo';
 
 declare module '@nuxt/types' {
     interface NuxtAppOptions {

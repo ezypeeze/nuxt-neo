@@ -17,10 +17,10 @@ test.before(globalBeforeAll({
 test.after(globalAfterAll());
 
 test('Test middleware for a controller', async (t) => {
-    const getProducts   = await api.get('/products');
-    const getProduct    = await api.get('/products/123123');
-    const postProduct   = await api.post('/products');
-    const putProduct    = await api.put('/products/123123');
+    const getProducts = await api.get('/products');
+    const getProduct = await api.get('/products/123123');
+    const postProduct = await api.post('/products');
+    const putProduct = await api.put('/products/123123');
     const deleteProduct = await api.delete('/products/123123');
 
     t.true(getProducts.data.controller_middleware);
@@ -31,10 +31,10 @@ test('Test middleware for a controller', async (t) => {
 });
 
 test('Test middleware for a specific action: allAction', async (t) => {
-    const getProducts   = await api.get('/products');
-    const getProduct    = await api.get('/products/123123');
-    const postProduct   = await api.post('/products');
-    const putProduct    = await api.put('/products/123123');
+    const getProducts = await api.get('/products');
+    const getProduct = await api.get('/products/123123');
+    const postProduct = await api.post('/products');
+    const putProduct = await api.put('/products/123123');
     const deleteProduct = await api.delete('/products/123123');
 
     t.true(getProducts.data.action_middleware);

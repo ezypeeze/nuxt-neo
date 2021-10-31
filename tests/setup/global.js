@@ -6,8 +6,8 @@ import { Nuxt, Builder } from 'nuxt';
 import axios from 'axios';
 import defaultNuxtConfig from '../fixtures/nuxt.config';
 
-process.env.PORT     = process.env.PORT || 3000;
-process.env.HOST     = process.env.HOST || 'localhost';
+process.env.PORT = process.env.PORT || 3000;
+process.env.HOST = process.env.HOST || 'localhost';
 process.env.NODE_ENV = 'test';
 
 // Globalize before all function
