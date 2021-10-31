@@ -1,10 +1,10 @@
 declare module 'nuxt-neo' {
     interface TestController {
-        allAction(args: any): Promise<any>;
-        createAction(args: any): Promise<any>;
-        getAction(args: any): Promise<any>;
-        removeAction(args: any): Promise<any>;
-        updateAction(args: any): Promise<any>;
+        allAction(args?: any): Promise<any>;
+        createAction(args?: any): Promise<any>;
+        getAction(args?: any): Promise<any>;
+        removeAction(args?: any): Promise<any>;
+        updateAction(args?: any): Promise<any>;
     }
 
     interface CategoriesController extends TestController {
@@ -17,7 +17,7 @@ declare module 'nuxt-neo' {
     }
 
     interface Api {
-        nuxtError(): Promise<void>;
+        nuxtError: { error: () => Promise<void> };
         products: TestController;
         users: UsersController;
     }
