@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.3.0](https://github.com/ezypeeze/nuxt-neo/compare/v4.2.1...v4.3.0) (2021-11-03)
+
+
+### Features
+
+* **types:** add types for the module configuration and api ([#37](https://github.com/ezypeeze/nuxt-neo/issues/37)) ([6105698](https://github.com/ezypeeze/nuxt-neo/commit/61056982c35fc3491293feb0bbfda0b7dbf447c4))
+
+
+### Bug Fixes
+
+* allow using ES imports syntax in the controllers ([#15](https://github.com/ezypeeze/nuxt-neo/issues/15)) ([3af9aad](https://github.com/ezypeeze/nuxt-neo/commit/3af9aad3371e792ae8004d4a41c28e78819f63b5)), closes [#12](https://github.com/ezypeeze/nuxt-neo/issues/12)
+* support passing options through nuxtNeo property ([#33](https://github.com/ezypeeze/nuxt-neo/issues/33)) ([77700dc](https://github.com/ezypeeze/nuxt-neo/commit/77700dc7e1deb2fed0fac395e7bbdebc903b9182))
+
 ### [4.2.1](https://github.com/ezypeeze/nuxt-neo/compare/v4.2.0...v4.2.1) (2021-10-25)
 
 
