@@ -27,6 +27,7 @@ jobs:
       - name: yarn install
         run: yarn
       - name: Linting
+        if: ${{ matrix.node-version == '14.x' }}
         run: yarn lint
       - name: Unittesting
         run: yarn test
