@@ -174,3 +174,23 @@ client-side it uses your ```clientSideApiHandler``` to handle the api request.
     query: {bar: true}
 }
 ```
+
+## Extending the Typescript API interface ##
+
+If your project is written in Typescript or uses JSDoc annotations to enable type-checking, you can extend the `Api` interface to make Typescript aware of the apis that you've created and enable type-safety and improve the UX during development.
+
+For example, for the example apis that we've created before on this page, you would extend the interface this way:
+
+```ts
+declare module 'nuxt-neo' {
+    declare type Todo = any;  // For of the sake of the example the type is not strictly defined
+
+    interface Api {
+        todos: {
+            allAction(): Promise<{ total: number, items: Todo[] }>;
+            getAction(args: { params: { id: number } }): Promise<Todo | null>;
+            createAction(args: { body: { title: string, content: string } }): Promise<Todo>;
+        }
+    }
+}
+```

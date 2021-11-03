@@ -1,6 +1,7 @@
 import path from 'path';
 
-export default {
+/** @type {import('@nuxt/types').NuxtConfig} */
+const config = {
     modules: [
         [path.join(__dirname, '../../lib', 'module'), {
             debug: true,
@@ -28,3 +29,5 @@ export default {
 
     srcDir: __dirname // fixtures folder, where all the test code will be.
 };
+
+export default config;

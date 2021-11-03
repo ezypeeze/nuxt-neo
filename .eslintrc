@@ -10,10 +10,6 @@
         "browser": true,
         "node": true
     },
-    "plugins": [
-        "ava",
-        "vue"
-    ],
     "rules": {
         // Require single quotes unless escaping is required
         "quotes": ["error", "single", { "avoidEscape": true }],
@@ -50,41 +46,36 @@
     },
     "overrides": [
         {
-            "files": ["*.vue"],
-            "extends": "plugin:vue/recommended",
+            "files": ["*.ts"],
+            "extends": "plugin:@typescript-eslint/recommended",
+            "parserOptions": {
+                "project": "./tsconfig.json"
+            },
             "rules": {
-                "vue/arrow-spacing": "error",
-                "vue/block-spacing": "error",
-                "vue/brace-style": "error",
-                "vue/comma-dangle": ["error", "always-multiline"],
-                "vue/component-name-in-template-casing": ["error", "kebab-case", {
-                    "registeredComponentsOnly": false
-                }],
-                "vue/eqeqeq": "error",
-                "vue/html-closing-bracket-newline": "off",
-                "vue/html-indent": ["error", 4],
-                "vue/html-self-closing": [
-                    "error", {
-                        "html": { "normal": "never" }
-                    }
-                ],
-                "vue/key-spacing": "error",
-                "vue/keyword-spacing": "error",
-                "vue/max-attributes-per-line": ["error", {
-                    "singleline": 100,
-                    "multiline": 100
-                }],
-                "vue/multiline-html-element-content-newline": ["error", {
-                    "ignores": ["pre", "textarea", "a", "nuxt-link"]
-                }],
-                "vue/no-deprecated-scope-attribute": "error",
-                "vue/no-v-html": "off",
-                "vue/object-curly-spacing": ["error", "always"],
-                "vue/script-indent": ["error", 4, { "switchCase": 1 }],
-                "vue/singleline-html-element-content-newline": "off",
-                "vue/space-infix-ops": "error",
-                "vue/valid-v-slot": "error",
-                "vue/v-slot-style": "error"
+                "indent": "off",
+                "no-use-before-define": "off",
+                "quotes": "off",
+                "semi": "off",
+                "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+                // There are issues with this rule:
+                // https://github.com/typescript-eslint/typescript-eslint/blob/v5.2.0/packages/eslint-plugin/docs/rules/indent.md
+                // "@typescript-eslint/indent": [
+                //     "error", 4, {
+                //         "SwitchCase": 1,
+                //         "FunctionDeclaration": { "parameters": "first" },
+                //         "FunctionExpression": { "parameters": "first" },
+                //         "CallExpression": { "arguments": "first" }
+                //     }
+                // ],
+                "@typescript-eslint/member-delimiter-style": "error",
+                "@typescript-eslint/no-empty-interface": "off",
+                "@typescript-eslint/no-explicit-any": "off",
+                "@typescript-eslint/no-extra-parens": "error",
+                "@typescript-eslint/no-require-imports": "error",
+                "@typescript-eslint/no-unnecessary-qualifier": "error",
+                "@typescript-eslint/no-useless-constructor": "error",
+                "@typescript-eslint/restrict-plus-operands": "error",
+                "@typescript-eslint/semi": ["error", "always"]
             }
         }
     ]

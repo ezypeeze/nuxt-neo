@@ -8,7 +8,7 @@ GIT_EMAIL=$(git config --get user.email)
 
 # build
 cd docs || exit
-yarn docs:build
+yarn build
 cd - || exit
 
 # navigate into the build output directory

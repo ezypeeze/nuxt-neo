@@ -1,0 +1,47 @@
+{
+    "plugins": [
+        "ava",
+        "vue"
+    ],
+    "overrides": [
+        {
+            "files": ["*.vue"],
+            "extends": "plugin:vue/recommended",
+            "rules": {
+                "vue/arrow-spacing": "error",
+                "vue/block-spacing": "error",
+                "vue/brace-style": "error",
+                "vue/comma-dangle": ["error", "always-multiline"],
+                "vue/component-name-in-template-casing": ["error", "kebab-case", {
+                    "registeredComponentsOnly": false
+                }],
+                "vue/eqeqeq": "error",
+                "vue/html-closing-bracket-newline": "off",
+                "vue/html-indent": ["error", 4],
+                "vue/html-self-closing": [
+                    "error", {
+                        "html": { "normal": "never" }
+                    }
+                ],
+                "vue/key-spacing": "error",
+                "vue/keyword-spacing": "error",
+                "vue/max-attributes-per-line": ["error", {
+                    "singleline": 100,
+                    "multiline": 100
+                }],
+                "vue/multi-word-component-names": "off",
+                "vue/multiline-html-element-content-newline": ["error", {
+                    "ignores": ["pre", "textarea", "a", "nuxt-link"]
+                }],
+                "vue/no-deprecated-scope-attribute": "error",
+                "vue/no-v-html": "off",
+                "vue/object-curly-spacing": ["error", "always"],
+                "vue/script-indent": ["error", 4, { "switchCase": 1 }],
+                "vue/singleline-html-element-content-newline": "off",
+                "vue/space-infix-ops": "error",
+                "vue/valid-v-slot": "error",
+                "vue/v-slot-style": "error"
+            }
+        }
+    ]
+}

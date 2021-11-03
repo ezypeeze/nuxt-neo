@@ -4,8 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "docs:dev": "yarn && vuepress dev content",
-    "docs:build": "yarn && vuepress build content"
+    "dev": "yarn && vuepress dev content",
+    "build": "yarn && vuepress build content"
   },
   "dependencies": {
     "vuepress": "^1.8.2"
