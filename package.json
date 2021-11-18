@@ -82,7 +82,7 @@
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-promise": "^5.1.1",
         "eslint-plugin-standard": "^4.1.0",
-        "eslint-plugin-vue": "^8.0.3",
+        "eslint-plugin-vue": "^8.1.1",
         "esm": "^3.2.25",
         "jsdom": "^18.1.0",
         "lodash": "^4.17.21",
@@ -92,7 +92,7 @@
         "querystring": "^0.2.1",
         "standard-version": "^9.3.2",
         "sure": "^0.0.3",
-        "typescript": "^4.4.4"
+        "typescript": "^4.5.2"
     },
     "ava": {
         "cache": true,
