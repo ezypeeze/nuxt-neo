@@ -4,6 +4,9 @@
     ":prHourlyLimit4",
     ":semanticCommitTypeAll(chore)"
   ],
+  "schedule": [
+    "after 10am every monday"
+  ],
   "meteor": {
     "enabled": false
   },
