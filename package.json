@@ -36,9 +36,6 @@
         "dev": "HOST=localhost PORT=3000 nuxt dev -c ./tests/fixtures/nuxt.config.js",
         "test": "ava",
         "lint": "eslint --ext '.js,.ts,.vue' lib tests types",
-        "release:patch": "standard-version --no-verify --release-as patch",
-        "release:minor": "standard-version --no-verify --release-as minor",
-        "release:major": "standard-version --no-verify --release-as major",
         "coverage": "c8 --reporter=lcov ava",
         "deploy:docs": "PACKAGE_VERSION=$(cat package.json|grep version|head -1|awk -F: '{ print $2 }'|sed 's/[\", ]//g') && ./deploy_docs.sh $PACKAGE_VERSION"
     },
