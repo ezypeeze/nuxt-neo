@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.3.1](https://github.com/ezypeeze/nuxt-neo/compare/v4.3.0...v4.3.1) (2022-02-07)
+
+
+### Bug Fixes
+
+* remove ctx from error after running error handler ([#58](https://github.com/ezypeeze/nuxt-neo/issues/58)) ([102b730](https://github.com/ezypeeze/nuxt-neo/commit/102b7307d591d8633e622a809ca41e39ea1b2129))
+
 ## [4.3.0](https://github.com/ezypeeze/nuxt-neo/compare/v4.2.1...v4.3.0) (2021-11-03)
 
 
