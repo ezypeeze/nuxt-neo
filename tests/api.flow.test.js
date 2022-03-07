@@ -57,6 +57,7 @@ test('Test hybrid api data flow client side', async (t) => {
     const resMiddle = window.document.querySelector('.index span.response-middleware');
     const numOfUsers = window.document.querySelector('.index span.number-of-users');
     const createUser = window.document.querySelector('.index .create-user');
+    const getOptional = window.document.querySelector('.index .get-optional');
     const firstUser = window.document.querySelector('.index .first-user');
     const ssError = window.document.querySelector('.index .server-side-force-error');
 
@@ -65,6 +66,8 @@ test('Test hybrid api data flow client side', async (t) => {
     createUser.dispatchEvent(new window.Event('click'));
     await new Promise(resolve => setTimeout(resolve, 2000)); // wait for API request
     createUser.dispatchEvent(new window.Event('click'));
+    await new Promise(resolve => setTimeout(resolve, 2000)); // wait for API request
+    getOptional.dispatchEvent(new window.Event('click'));
     await new Promise(resolve => setTimeout(resolve, 2000)); // wait for API request
 
     t.is(path.textContent, '/api/v2/users/1');

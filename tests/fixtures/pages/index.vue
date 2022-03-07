@@ -9,9 +9,11 @@
         <span class="number-of-users">{{ users.length }}</span>
         <span v-if="users && users[0]" class="first-user">{{ users[0].first_name }}</span>
         <span v-if="serverForceError" class="server-side-force-error">{{ serverForceError }}</span>
+        <div class="optional-data">{{ optionalData }}</div>
 
         <button class="change-path" @click="handleClick">Change Path</button>
         <button class="create-user" @click="handleCreateUser">Create User</button>
+        <button class="get-optional" @click="handleGetOptional">Get Optional</button>
     </div>
 </template>
 
@@ -32,16 +34,18 @@ export default {
         } catch (err) {
             serverForceError = err.message;
         }
+        await app.$api.users.getActionOptional({ params: { id: '1' } });
 
         return {
             users,
             serverForceError,
-            data: await app.$api.users.categories.types.allAction()
+            data: await app.$api.users.categories.types.allAction(),
+            optionalData: {}
         };
     },
     methods: {
         async handleClick() {
-            this.data = await this.$api.users.getAction({ params: { id: 1 } });
+            this.data = await this.$api.users.getAction({ params: { id: '1' } });
         },
         async handleCreateUser() {
             await this.$api.users.createAction({
@@ -52,6 +56,9 @@ export default {
             });
             const { users } = await this.$api.users.allAction();
             this.users = users;
+        },
+        async handleGetOptional() {
+            this.optionalData = await this.$api.users.getActionOptional({ params: { id: '1' } });
         }
     }
 };

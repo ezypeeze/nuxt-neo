@@ -58,7 +58,8 @@
     },
     "dependencies": {
         "body-parser": "^1.19.2",
-        "express": "^4.17.3"
+        "express": "^4.17.3",
+        "path-to-regexp": "^6.2.0"
     },
     "devDependencies": {
         "@nuxt/types": "^2.15.8",
