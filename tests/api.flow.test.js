@@ -30,9 +30,9 @@ test('Test third level api (GET /api/v2/users/categories/types)', async (t) => {
 
 test('Test hybrid api data flow server side.', async (t) => {
     const window = await nuxt.renderAndGetWindow(serverUrl('/'));
-    const path = window.document.querySelector('.index span.path');
-    const okay = window.document.querySelector('.index span.okay');
-    const resMiddle = window.document.querySelector('.index span.response-middleware');
+    const path = window.document.querySelector('.index div.path');
+    const okay = window.document.querySelector('.index div.okay');
+    const resMiddle = window.document.querySelector('.index div.response-middleware');
 
     t.is(okay.textContent, "It's okay!");
     t.is(resMiddle.textContent, "It's okay!");
@@ -50,15 +50,16 @@ test('Test hybrid api data flow server side.', async (t) => {
 
 test('Test hybrid api data flow client side', async (t) => {
     const window = await nuxt.renderAndGetWindow(serverUrl('/'));
-    const path = window.document.querySelector('.index span.path');
-    const okay = window.document.querySelector('.index span.okay');
-    const idParam = window.document.querySelector('.index span.id-param');
+    const path = window.document.querySelector('.index div.path');
+    const okay = window.document.querySelector('.index div.okay');
+    const idParam = window.document.querySelector('.index div.id-param');
     const changePath = window.document.querySelector('.index .change-path');
-    const resMiddle = window.document.querySelector('.index span.response-middleware');
-    const numOfUsers = window.document.querySelector('.index span.number-of-users');
+    const changePathWithoutParam = window.document.querySelector('.index .change-path-without-param');
+    const resMiddle = window.document.querySelector('.index div.response-middleware');
+    const numOfUsers = window.document.querySelector('.index div.number-of-users');
     const createUser = window.document.querySelector('.index .create-user');
     const firstUser = window.document.querySelector('.index .first-user');
-    const ssError = window.document.querySelector('.index .server-side-force-error');
+    let errorMessage = window.document.querySelector('.index .error-message');
 
     changePath.dispatchEvent(new window.Event('click'));
     await new Promise(resolve => setTimeout(resolve, 2000)); // wait for API request
@@ -72,10 +73,15 @@ test('Test hybrid api data flow client side', async (t) => {
     t.is(idParam.textContent, '1');
     t.is(resMiddle.textContent, "It's okay!");
     t.is(numOfUsers.textContent, '4'); // 3 nuxt.renderAndGetWindow (auto create on asyncData page) and 2 clicks to add user == 5
-    t.true(!!ssError);
-    t.is(ssError.textContent, 'Forced error');
+    t.true(!!errorMessage);
+    t.is(errorMessage.textContent, 'Forced error');
     t.true(!!firstUser);
     t.is(firstUser.textContent, 'first');
+
+    changePathWithoutParam.dispatchEvent(new window.Event('click'));
+    await new Promise(resolve => setTimeout(resolve, 2000)); // wait for API request
+    errorMessage = window.document.querySelector('.index .error-message');
+    t.false(!!errorMessage); // since no param is given, should assume /users, which is list endpoint
 
     // Test http errors
     t.true('BadRequestError' in window);
