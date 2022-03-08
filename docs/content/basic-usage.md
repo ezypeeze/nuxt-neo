@@ -32,7 +32,7 @@ class TodosController {
     // Required: This will be the action to route mapper.
     static ROUTES = {
         allAction: {
-            path: '/', // your route will be /api/todos'/'
+            path: '/', // your route will be /api/todos/
             verb: 'GET'
         },
         getAction: {
@@ -40,7 +40,7 @@ class TodosController {
             verb: 'GET'
         },
         createAction: {
-            path: '/', // your route will be /api/todos'/'
+            path: '/', // your route will be /api/todos/
             verb: 'POST'
         },
     };
@@ -68,7 +68,6 @@ class TodosController {
 
     // An object is passed to all actions, with the route params, query string and body.
     async createAction({params, query, body}) {
-
         return await Todos.create(body.title, body.content);
     }
 }
@@ -145,7 +144,11 @@ properties for server-side fetching on vue.js pages, we can simply do this:
 
 <script>
     export default {
-        asyncData: async ({app}) => ({todos: await app.$api.todos.allAction()}),
+        async asyncData({ $api }) {
+            return {
+                todos: await $api.todos.allAction()
+            }
+        },
         methods: {
             async handleClick(id) {
                 this.currentTodo = await this.$api.todos.getAction({params: {id}});

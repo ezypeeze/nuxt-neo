@@ -9,6 +9,11 @@ const config = {
         }]
     ],
 
+    env: {
+        HOST: process.env.HOST,
+        PORT: process.env.PORT
+    },
+
     build: {
         babel: {
             presets({ isServer }) {

@@ -10,6 +10,10 @@ export default class UserController {
             path: '/:id',
             verb: 'GET'
         },
+        getActionOptional: {
+            path: '/opt/:id/:optional?',
+            verb: 'GET'
+        },
         createAction: {
             path: '/',
             verb: 'POST'
@@ -45,6 +49,15 @@ export default class UserController {
             params,
             query,
             user: users.filter(user => user.id === params.id)
+        };
+    }
+
+    async getActionOptional({ params, query }) {
+        return {
+            ok: true,
+            path: this.request.originalUrl,
+            params,
+            query
         };
     }
 
