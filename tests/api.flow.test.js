@@ -69,7 +69,7 @@ test('Test hybrid api data flow client side', async (t) => {
     t.is(errorMessage.textContent, 'Forced error');
     t.falsy(errorMessageGetOptional);
     t.truthy(errorMessageGetWithoutParam);
-    t.is(errorMessageGetWithoutParam.textContent, 'Expected "id" to be a string');
+    t.true(errorMessageGetWithoutParam.textContent.includes('Error calling the nuxt-neo API'));
 
     changePath.dispatchEvent(new window.Event('click'));
     await new Promise(resolve => setTimeout(resolve, 2000)); // wait for API request
@@ -91,7 +91,7 @@ test('Test hybrid api data flow client side', async (t) => {
     changePathWithoutParam.dispatchEvent(new window.Event('click'));
     await new Promise(resolve => setTimeout(resolve, 2000)); // wait for API request
     errorMessage = window.document.querySelector('.index .error-message');
-    t.is(errorMessage.textContent, 'Expected "id" to be a string'); // error when no required param is given
+    t.true(errorMessage.textContent.includes('Error calling the nuxt-neo API')); // error when no required param is given
 
     getOptional.dispatchEvent(new window.Event('click'));
     await new Promise(resolve => setTimeout(resolve, 2000)); // wait for API request
