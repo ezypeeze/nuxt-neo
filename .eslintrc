@@ -24,7 +24,7 @@
         // Allow async-await
         "generator-star-spacing": "off",
         // Do not allow console.logs etc...
-        "no-console": 1,
+        "no-console": ["error", { "allow": ["warn", "error"] }],
         // Disallow multiple spaces unless in the EOL comments
         "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
         // At most one empty line
