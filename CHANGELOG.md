@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/ezypeeze/nuxt-neo/compare/v4.3.1...v5.0.0) (2022-03-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* Parsing of params in route paths now uses the [path-to-regexp](https://github.com/pillarjs/path-to-regexp) library which is what express.js uses also. Before this change there was no validation of passed path params while now the API call will fail if the params don't match what the route path expects.
+
+### Bug Fixes
+
+* ensure bundled version of path-to-regexp is used ([#74](https://github.com/ezypeeze/nuxt-neo/issues/74)) ([2ee628b](https://github.com/ezypeeze/nuxt-neo/commit/2ee628b7e65e82f259f7c1e7dfb79f5ea260bae4))
+* make params matching use express logic ([#70](https://github.com/ezypeeze/nuxt-neo/issues/70)) ([6f520cd](https://github.com/ezypeeze/nuxt-neo/commit/6f520cd609dbf72eee770cd9ac6846b7dac4269e))
+
 ### [4.3.1](https://github.com/ezypeeze/nuxt-neo/compare/v4.3.0...v4.3.1) (2022-02-07)
 
 
