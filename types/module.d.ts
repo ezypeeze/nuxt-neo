@@ -92,10 +92,7 @@ declare module 'nuxt-neo' {
     }
 
     // Contains resolved values that are no longer optional and include some extra properties.
-    interface ResolvedModuleOptions extends Required<ModuleConfiguration> {
-        aliasKey: RegExp;
-        srcDir: string;
-    }
+    type ResolvedModuleOptions = Required<ModuleConfiguration>;
 
     // Types and interfaces for the controllers. The user can use those to annotate controllers.
 
