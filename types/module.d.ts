@@ -91,11 +91,8 @@ declare module 'nuxt-neo' {
         serverNotFoundRouteResponse?: (req: Request, res: Response, options: ModuleConfiguration) => void;
     }
 
-    // Contains resolved values that are no longer optional and include some extra properties.
-    interface ResolvedModuleOptions extends Required<ModuleConfiguration> {
-        aliasKey: RegExp;
-        srcDir: string;
-    }
+    // Contains resolved values that are no longer optional.
+    type ResolvedModuleOptions = Required<ModuleConfiguration>;
 
     // Types and interfaces for the controllers. The user can use those to annotate controllers.
 
