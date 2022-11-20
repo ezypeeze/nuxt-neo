@@ -82,7 +82,7 @@
         "eslint-plugin-standard": "^4.1.0",
         "eslint-plugin-vue": "^8.7.1",
         "esm": "^3.2.25",
-        "jsdom": "^19.0.0",
+        "jsdom": "^20.0.3",
         "lodash": "^4.17.21",
         "nuxt": "^2.15.8",
         "pre-commit": "^1.2.2",
