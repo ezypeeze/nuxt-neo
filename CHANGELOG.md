@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.1](https://github.com/ezypeeze/nuxt-neo/compare/v5.0.0...v5.0.1) (2024-07-25)
+
+
+### Bug Fixes
+
+* support .ts files for controllers ([#110](https://github.com/ezypeeze/nuxt-neo/issues/110)) ([01b9635](https://github.com/ezypeeze/nuxt-neo/commit/01b963596884780575997fb3dbba833269d100da))
+
 ## [5.0.0](https://github.com/ezypeeze/nuxt-neo/compare/v4.3.1...v5.0.0) (2022-03-12)
 
 
