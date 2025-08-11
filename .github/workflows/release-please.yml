@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         if: ${{ steps.release.outputs.release_created }}
         with:
-          node-version: 14
+          node-version: 14.21.3
           registry-url: https://registry.npmjs.org
       - name: Lint and Test
         if: ${{ steps.release.outputs.release_created }}
